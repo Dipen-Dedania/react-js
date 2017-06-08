@@ -12,5 +12,7 @@ create-react-app react-js
 - Install dependencies
 
 ```
-npm install react react-dom react-router@3.0.2 --save
+npm install react react-dom --save
+
+npm install react-router-dom
 ```
