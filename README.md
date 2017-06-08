@@ -14,7 +14,7 @@ create-react-app react-js
 ```
 npm install react react-dom --save
 
-npm install react-router-dom
+npm install react-router-dom --save
 ```
 
 ## 3. AJAX
@@ -28,5 +28,5 @@ A library for data fetching (which generally work in all modern browsers). Faceb
 
 We have selected axios based on STARS.
 ```
-npm install axios
+npm install axios --save
 ```
