@@ -30,3 +30,11 @@ We have selected axios based on STARS.
 ```
 npm install axios --save
 ```
+
+## 4. STATE
+
+Checkout the console log to better understand the state
+
+## 5. Tic Tac Toe
+
+Time for a little game.
