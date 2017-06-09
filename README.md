@@ -37,4 +37,4 @@ Checkout the console log to better understand the state
 
 ## 5. Tic Tac Toe
 
-Time for a little game.
+Time for a little game. (Updated logic - https://facebook.github.io/react/tutorial/tutorial.html)
