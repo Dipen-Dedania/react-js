@@ -9,11 +9,20 @@ import {
 import A1 from './a1';
 import A2 from './a2';
 
+var styles = {
+  disabledItem: {
+    cursor: 'not-allowed'
+  },
+  item: {
+    cursor: 'pointer'
+  }
+};
+
 class Card extends React.Component {
 	render(){
 	  return (
-	    <div className="col-md-3 col-sm-6 col-xs-12" onClick={this.props.onSomeEvent}>
-	      <div className="card-container">{this.props.text}</div>
+	    <div className="col-md-3 col-sm-6 col-xs-12" onClick={!this.props.isDisable? this.props.onSomeEvent : ''}>
+	      <div className="card-container" style={this.props.isDisable ? styles.disabledItem : styles.item}>{this.props.text}</div>
 	    </div>
 	  );
 	}
@@ -32,8 +41,8 @@ class InnerTabs extends React.Component {
     		<div className="row">
     			<Card text="Static Data" murl={url1} onSomeEvent={() => this.handleClick(url1)}/>
     			<Card text="Async Data" isDisable={disabled} murl={url2} onSomeEvent={() => this.handleClick(url2)} />
-    			<Card text="Custom Menu" murl="/autocomplete/a3" />
-    			<Card text="Managed Menu Visibility" murl="/autocomplete/a4" />
+    			<Card text="Custom Menu" isDisable={disabled} murl="/autocomplete/a3" />
+    			<Card text="Managed Menu Visibility" isDisable={disabled} murl="/autocomplete/a4" />
     		</div>
     		);
     }
