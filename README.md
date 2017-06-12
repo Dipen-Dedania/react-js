@@ -49,3 +49,10 @@ Use - [react-autocomplete](https://github.com/reactjs/react-autocomplete)
 ```
 npm install --save react-autocomplete
 ```
+
+## 7. Passing values from parent component to child component and vice versa
+
+Example showing how pass values from :
+- Parent to Child — Use Prop
+- Child to Parent — Use a callback and states
+```
