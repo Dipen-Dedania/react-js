@@ -45,3 +45,7 @@ We will include bootsrap framework for this..
 ```
 npm install --save react-bootstrap
 ```
+Use - [react-autocomplete](https://github.com/reactjs/react-autocomplete)
+```
+npm install --save react-autocomplete
+```
