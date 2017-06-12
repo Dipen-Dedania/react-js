@@ -1,0 +1,25 @@
+.box{
+    display: inline-block;
+    margin: 40px;
+    height: 300px;
+    width: 300px;
+    background-color: red;
+    border: dotted;
+    text-align: center;
+}
+
+.small-box{
+    height: 150px;
+    width: 150px;
+    background-color: yellow;
+    border: dashed;
+    margin: 23%;
+}
+
+.main-box{
+    background-color: antiquewhite;
+}
+
+.center-align{
+    text-align: center;
+}

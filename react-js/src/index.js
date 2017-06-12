@@ -14,9 +14,11 @@ import Clock from './components/clock/clock';
 import Game from './components/game/game';
 import Agecalculator from './components/agecalculator/agecalculator';
 import Autocomplete from './components/autocomplete/index';
+import ParentChild from './components/parentchild/parentchild';
 
 //Importing CSS
 import './components/agecalculator/agecalculator.css'
+import './components/parentchild/parentchild.css'
 //render part
 
 ReactDOM.render(
@@ -28,8 +30,9 @@ ReactDOM.render(
 	        <li><Link to="/career">Career</Link></li>
 	        <li><Link to="/clock">Clock With State</Link></li>
 	        <li><Link to="/game">Tic Tac Toe</Link></li>
-			    <li><Link to="/calculator"> Age Calculator & More </Link></li>
-          <li><Link to="/autocomplete">Autocomplete</Link></li>
+            <li><Link to="/calculator"> Age Calculator & More </Link></li>
+            <li><Link to="/autocomplete">Autocomplete</Link></li>
+    		<li><Link to="/parentchild">Parent child value passing techniques</Link></li>
 	      </ul>
 
 	      <hr/>
@@ -40,7 +43,8 @@ ReactDOM.render(
 	      <Route path="/clock" component={Clock}/>
 	      <Route path="/game" component={Game}/>
 	      <Route path="/calculator" component={Agecalculator}/>
-        <Route path="/autocomplete" component={Autocomplete}/>
+    <Route path="/autocomplete" component={Autocomplete}/>
+		<Route path="/parentchild" component={ParentChild}/>
 	    </div>
 	  </Router>
     , document.getElementById('root'));
