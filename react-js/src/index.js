@@ -27,7 +27,7 @@ ReactDOM.render(
 	      <ul>
 	        <li><Link to="/">Home</Link></li>
 	        <li><Link to="/about">About</Link></li>
-	        <li><Link to="/career">Career</Link></li>
+	        <li><Link to="/career">Ajax</Link></li>
 	        <li><Link to="/clock">Clock With State</Link></li>
 	        <li><Link to="/game">Tic Tac Toe</Link></li>
             <li><Link to="/calculator"> Age Calculator & More </Link></li>
