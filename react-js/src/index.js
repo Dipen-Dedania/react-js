@@ -27,7 +27,7 @@ ReactDOM.render(
 	      <ul>
 	        <li><Link to="/">Home</Link></li>
 	        <li><Link to="/about">About</Link></li>
-	        <li><Link to="/career">Ajax</Link></li>
+	        <li><Link to="/ajax">Ajax</Link></li>
 	        <li><Link to="/clock">Clock With State</Link></li>
 	        <li><Link to="/game">Tic Tac Toe</Link></li>
             <li><Link to="/calculator"> Age Calculator & More </Link></li>
@@ -39,7 +39,7 @@ ReactDOM.render(
 
 	      <Route exact path="/" component={Home}/>
 	      <Route path="/about" component={About}/>
-	      <Route path="/career" component={JobsCollect}/>
+	      <Route path="/ajax" component={JobsCollect}/>
 	      <Route path="/clock" component={Clock}/>
 	      <Route path="/game" component={Game}/>
 	      <Route path="/calculator" component={Agecalculator}/>
