@@ -3,7 +3,7 @@
     margin: 40px;
     height: 300px;
     width: 300px;
-    background-color: red;
+    background-color: #81D4FA;
     border: dotted;
     text-align: center;
 }
@@ -11,13 +11,13 @@
 .small-box{
     height: 150px;
     width: 150px;
-    background-color: yellow;
+    background-color: #E1F5FE;
     border: dashed;
     margin: 23%;
 }
 
 .main-box{
-    background-color: antiquewhite;
+    background-color: #E0E0E0;
 }
 
 .center-align{
