@@ -13,6 +13,7 @@ import JobsCollect from './components/somepage/somepage';
 import Clock from './components/clock/clock';
 import Game from './components/game/game';
 import Agecalculator from './components/agecalculator/agecalculator';
+import Autocomplete from './components/autocomplete/index';
 
 //Importing CSS
 import './components/agecalculator/agecalculator.css'
@@ -27,7 +28,8 @@ ReactDOM.render(
 	        <li><Link to="/career">Career</Link></li>
 	        <li><Link to="/clock">Clock With State</Link></li>
 	        <li><Link to="/game">Tic Tac Toe</Link></li>
-			<li><Link to="/calculator"> Age Calculator & More </Link></li>
+			    <li><Link to="/calculator"> Age Calculator & More </Link></li>
+          <li><Link to="/autocomplete">Autocomplete</Link></li>
 	      </ul>
 
 	      <hr/>
@@ -38,6 +40,7 @@ ReactDOM.render(
 	      <Route path="/clock" component={Clock}/>
 	      <Route path="/game" component={Game}/>
 	      <Route path="/calculator" component={Agecalculator}/>
+        <Route path="/autocomplete" component={Autocomplete}/>
 	    </div>
 	  </Router>
     , document.getElementById('root'));

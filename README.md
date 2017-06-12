@@ -38,3 +38,10 @@ Checkout the console log to better understand the state
 ## 5. Tic Tac Toe
 
 Time for a little game. (Updated logic - https://facebook.github.io/react/tutorial/tutorial.html)
+
+## 6. Autocomplete
+
+We will include bootsrap framework for this..
+```
+npm install --save react-bootstrap
+```
