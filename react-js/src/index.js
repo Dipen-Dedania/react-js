@@ -15,6 +15,7 @@ import Game from './components/game/game';
 import Agecalculator from './components/agecalculator/agecalculator';
 import Autocomplete from './components/autocomplete/index';
 import ParentChild from './components/parentchild/parentchild';
+import RestApi from './components/restapi/restapi';
 
 
 //render part
@@ -31,6 +32,7 @@ ReactDOM.render(
             <li><Link to="/calculator"> Age Calculator & More </Link></li>
             <li><Link to="/autocomplete">Autocomplete</Link></li>
     		<li><Link to="/parentchild">Parent child value passing techniques</Link></li>
+			<li><Link to="/restapi">Rest API Calls</Link></li>
 	      </ul>
 
 	      <hr/>
@@ -41,8 +43,9 @@ ReactDOM.render(
 	      <Route path="/clock" component={Clock}/>
 	      <Route path="/game" component={Game}/>
 	      <Route path="/calculator" component={Agecalculator}/>
-    <Route path="/autocomplete" component={Autocomplete}/>
+	      <Route path="/autocomplete" component={Autocomplete}/>
 		<Route path="/parentchild" component={ParentChild}/>
+    	<Route path="/restapi" component={RestApi}/>
 	    </div>
 	  </Router>
     , document.getElementById('root'));
