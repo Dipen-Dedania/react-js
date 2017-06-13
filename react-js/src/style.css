@@ -178,9 +178,10 @@ h5 {
 ul.nav-second-level {
   background: #293846;
 }
-.nav > li.active {
+.nav > li >a.active {
   border-left: 4px solid #19aa8d;
   background: #293846;
+  color: #fff;
 }
 .nav.nav-second-level > li.active {
   border: none;

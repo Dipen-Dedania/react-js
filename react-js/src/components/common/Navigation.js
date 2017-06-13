@@ -3,14 +3,23 @@ import { Dropdown } from 'react-bootstrap';
 import {
   BrowserRouter as Router,
   Route,
-  Link
+  Link,
+  NavLink
 } from 'react-router-dom'
 
 import $ from 'jquery';
-//import {$, jquery} from 'jquery';
 import metismenu from 'metismenu';
 
+function activeRoute2(routeName) {
+    console.log(this.props.location.pathname);
+    return this.props.location.pathname.indexOf(routeName) > -1 ? "active" : "";
+    //return "";
+}
+
 class Navigation extends Component {
+    constructor(props) {
+        super(props);
+    }
 
     componentDidMount() {
         const { menu } = this.refs;
@@ -44,32 +53,32 @@ class Navigation extends Component {
                                 DD+
                             </div>
                         </li>
-                        <li className={this.activeRoute("/")}>
-                            <Link to="/"><i className="fa fa-th-large"></i> <span className="nav-label">Home</span></Link>
-                        </li>
                         <li className={this.activeRoute("/about")}>
-                            <Link to="/about"><i className="fa fa-th-large"></i> <span className="nav-label">About</span></Link>
+                            <NavLink to="/about" activeClassName="active"><i className="fa fa-th-large"></i> <span className="nav-label">About</span></NavLink>
                         </li>
                         <li className={this.activeRoute("/ajax")}>
-                            <Link to="/ajax"><i className="fa fa-th-large"></i> <span className="nav-label">Ajax</span></Link>
+                            <NavLink to="/ajax" activeClassName="active"><i className="fa fa-th-large"></i> <span className="nav-label">Ajax</span></NavLink>
                         </li>
                         <li className={this.activeRoute("/clock")}>
-                            <Link to="/clock"><i className="fa fa-th-large"></i> <span className="nav-label">Clock With State</span></Link>
+                            <NavLink to="/clock" activeClassName="active"><i className="fa fa-th-large"></i> <span className="nav-label">Clock With State</span></NavLink>
                         </li>
                         <li className={this.activeRoute("/game")}>
-                            <Link to="/game"><i className="fa fa-th-large"></i> <span className="nav-label">Tic Tac Toe</span></Link>
+                            <NavLink to="/game" activeClassName="active"><i className="fa fa-th-large"></i> <span className="nav-label">Tic Tac Toe</span></NavLink>
                         </li>
                         <li className={this.activeRoute("/calculator")}>
-                            <Link to="/calculator"><i className="fa fa-th-large"></i> <span className="nav-label">Age Calculator & More </span></Link>
+                            <NavLink to="/calculator" activeClassName="active"><i className="fa fa-th-large"></i> <span className="nav-label">Age Calculator & More </span></NavLink>
                         </li>
                         <li className={this.activeRoute("/autocomplete")}>
-                            <Link to="/autocomplete"><i className="fa fa-th-large"></i> <span className="nav-label">Autocomplete</span></Link>
+                            <NavLink to="/autocomplete" activeClassName="active"><i className="fa fa-th-large"></i> <span className="nav-label">Autocomplete</span></NavLink>
                         </li>
                         <li className={this.activeRoute("/parentchild")}>
-                            <Link to="/parentchild"><i className="fa fa-th-large"></i> <span className="nav-label">Parent child value passing techniques</span></Link>
+                            <NavLink to="/parentchild" activeClassName="active"><i className="fa fa-th-large"></i> <span className="nav-label">Parent child value passing techniques</span></NavLink>
                         </li>
                         <li className={this.activeRoute("/restapi")}>
-                            <Link to="/restapi"><i className="fa fa-th-large"></i> <span className="nav-label">REST API</span></Link>
+                            <NavLink to="/restapi" activeClassName="active"><i className="fa fa-th-large"></i> <span className="nav-label">REST API</span></NavLink>
+                        </li>
+                        <li className={this.activeRoute("/uploadfile")}>
+                            <NavLink to="/uploadfile" activeClassName="active"><i className="fa fa-th-large"></i> <span className="nav-label">Upload File</span></NavLink>
                         </li>
                     </ul>
 
