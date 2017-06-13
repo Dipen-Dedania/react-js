@@ -10,12 +10,15 @@ import './restapi.css'
 import Get from './get'
 import Post from './post'
 import Delete from './delete'
+import Put from './put'
 
 class ApiComponent extends React.Component{
     render(){
         const getURL = "/restapi/get";
         const postURL = "/restapi/post";
         const deleteURL = "/restapi/delete"
+        const putURL = "/restapi/put"
+
         return (
             <div>
                 <div>
@@ -24,7 +27,7 @@ class ApiComponent extends React.Component{
                 <div className="row">
                     <Card text="Get" cardName = "Get" URL = {getURL}/>
                     <Card text="Post" cardName = "Post" URL = {postURL}/>
-                    <Card text="Put" cardName = "Put"/>
+                    <Card text="Put" cardName = "Put" URL = {putURL}/>
                     <Card text="Delete" cardName = "Delete" URL = {deleteURL}/>
                 </div>
             </div>
@@ -40,6 +43,7 @@ class RestApi extends React.Component{
                 <Route path="/restapi/get" component={Get}/>
                 <Route path="/restapi/post" component={Post}/>
                 <Route path="/restapi/delete" component={Delete}/>
+                <Route path="/restapi/put" component={Put}/>
             </div>
         )
     }
