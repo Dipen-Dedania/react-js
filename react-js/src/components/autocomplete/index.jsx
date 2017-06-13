@@ -56,6 +56,10 @@ class Autocomplete extends React.Component {
     		<div>
     			<Route path="/autocomplete" component={InnerTabs}/>
     			// this will not load A1 & A2 Components - they will be loaded onclick - Async
+				<br />
+				<br />
+				<br />
+    			//For more details - click on this <a href="https://github.com/reactjs/react-autocomplete">link</a>
     			<Route exact path="/autocomplete/a1" component={A1}/>
     			<Route path="/autocomplete/a2" component={A2}/>
     		</div>

@@ -15,37 +15,38 @@ import Game from './components/game/game';
 import Agecalculator from './components/agecalculator/agecalculator';
 import Autocomplete from './components/autocomplete/index';
 import ParentChild from './components/parentchild/parentchild';
+//import {jquery, jQuery, $} from 'jquery';
+import Navigation from './components/common/Navigation'
+import TopHeader from './components/common/TopHeader';
 import RestApi from './components/restapi/restapi';
 
+//Importing CSS
+import './index.css'
+import './style.css'
+import './components/agecalculator/agecalculator.css'
+import './components/parentchild/parentchild.css'
+import './../node_modules/font-awesome/css/font-awesome.css'
 
 //render part
 
 ReactDOM.render(
 	<Router>
-	    <div>
-	      <ul>
-	        <li><Link to="/">Home</Link></li>
-	        <li><Link to="/about">About</Link></li>
-	        <li><Link to="/ajax">Ajax</Link></li>
-	        <li><Link to="/clock">Clock With State</Link></li>
-	        <li><Link to="/game">Tic Tac Toe</Link></li>
-            <li><Link to="/calculator"> Age Calculator & More </Link></li>
-            <li><Link to="/autocomplete">Autocomplete</Link></li>
-    		<li><Link to="/parentchild">Parent child value passing techniques</Link></li>
-			<li><Link to="/restapi">Rest API Calls</Link></li>
-	      </ul>
-
-	      <hr/>
-
-	      <Route exact path="/" component={Home}/>
-	      <Route path="/about" component={About}/>
-	      <Route path="/ajax" component={JobsCollect}/>
-	      <Route path="/clock" component={Clock}/>
-	      <Route path="/game" component={Game}/>
-	      <Route path="/calculator" component={Agecalculator}/>
-	      <Route path="/autocomplete" component={Autocomplete}/>
-		<Route path="/parentchild" component={ParentChild}/>
-    	<Route path="/restapi" component={RestApi}/>
+	    <div id="wrapper">
+		    <Navigation />
+		    <div id="page-wrapper" className="gray-bg">
+			    <TopHeader />
+			    <div>
+		        	<Route exact path="/" component={Home}/>
+				    <Route path="/about" component={About}/>
+				    <Route path="/career" component={JobsCollect}/>
+				    <Route path="/clock" component={Clock}/>
+				    <Route path="/game" component={Game}/>
+				    <Route path="/calculator" component={Agecalculator}/>
+					<Route path="/autocomplete" component={Autocomplete}/>
+					<Route path="/parentchild" component={ParentChild}/>    
+					<Route path="/restapi" component={RestApi}/> 
+				</div>
+	        </div>
 	    </div>
 	  </Router>
     , document.getElementById('root'));
