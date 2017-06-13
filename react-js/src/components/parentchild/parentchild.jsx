@@ -2,6 +2,8 @@
  * Created by Harsh on 08-06-2017.
  */
 import React from 'react';
+//Importing CSS
+import './parentchild.css'
 
 class Parentchild extends React.Component {
 

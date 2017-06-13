@@ -1,5 +1,6 @@
 import React from 'react';
-
+//Importing CSS
+import './agecalculator.css'
 
 class Agecalculator extends React.Component {
 

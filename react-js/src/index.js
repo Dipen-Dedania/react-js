@@ -16,9 +16,7 @@ import Agecalculator from './components/agecalculator/agecalculator';
 import Autocomplete from './components/autocomplete/index';
 import ParentChild from './components/parentchild/parentchild';
 
-//Importing CSS
-import './components/agecalculator/agecalculator.css'
-import './components/parentchild/parentchild.css'
+
 //render part
 
 ReactDOM.render(

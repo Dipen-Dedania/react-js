@@ -19,9 +19,14 @@ function GetData() {
 	axios.get('https://codepen.io/jobs.json')
 	.then(function (response) {
 		console.log(response);
-		ReactDOM.render(
-			<JobList numbers={response.data.jobs} />
-			, document.getElementById('joblist'))
+		if(response.status == 200){
+            ReactDOM.render(
+				<JobList numbers={response.data.jobs} />
+                , document.getElementById('joblist'))
+		}
+		else{
+			alert("Something went wrong please try again");
+		}
 	})
 	.catch(function (error) {
 		console.log(error);
