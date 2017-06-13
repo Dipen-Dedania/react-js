@@ -34,8 +34,8 @@ class Navigation extends Component {
                             <div className="dropdown profile-element"> <span>
                              </span>
                                 <a data-toggle="dropdown" className="dropdown-toggle" href="#">
-                            <span className="clear"> <span className="block m-t-xs"> <strong className="font-bold">Example user</strong>
-                             </span> <span className="text-muted text-xs block">Example position<b className="caret"></b></span> </span> </a>
+                            <span className="clear"> <span className="block m-t-xs"> <strong className="font-bold">React tutorials</strong>
+                             </span> <span className="text-muted text-xs block">Checkout tabs<b className="caret"></b></span> </span> </a>
                                 <ul className="dropdown-menu animated fadeInRight m-t-xs">
                                     <li><a href="#"> Logout</a></li>
                                 </ul>

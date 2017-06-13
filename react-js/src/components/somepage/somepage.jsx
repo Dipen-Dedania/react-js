@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import axios from 'axios';
+import LoadingMask from '../common/LoadingMask';
+
 
 function JobList(props) {
   var numbers = props.numbers;
@@ -14,31 +16,47 @@ function JobList(props) {
   );
 }
 
-function GetData() {
- 	// Make a request for a user with a given ID
-	axios.get('https://codepen.io/jobs.json')
-	.then(function (response) {
-		console.log(response);
-		if(response.status == 200){
-            ReactDOM.render(
-				<JobList numbers={response.data.jobs} />
-                , document.getElementById('joblist'))
-		}
-		else{
-			alert("Something went wrong please try again");
-		}
-	})
-	.catch(function (error) {
-		console.log(error);
-	});
-}
-
 class SomePage extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { isVisible: false};
+  }
+
+  hideLoading() {
+    this.setState({ isVisible: false });
+    console.log("hideLoading");
+  }
+
+  GetData() {
+    // Make a request for a user with a given ID
+    this.setState({ isVisible: true });
+    var _this = this;
+    axios.get('https://codepen.io/jobs.json')
+    .then(function (response) {
+      console.log(response);
+      if(response.status == 200){
+          _this.hideLoading();
+              ReactDOM.render(
+          <JobList numbers={response.data.jobs} />
+                  , document.getElementById('joblist'))
+      }
+      else{
+        alert("Something went wrong please try again");
+      }
+    })
+    .catch(function (error) {
+      console.log(error);
+    });
+  }
+
     render(){
+      const isVisible = this.state.isVisible;
         return (
         	<div>
         		<h1>Jobs</h1>
-        		<button onClick={GetData}>Get All Jobs Using AJAX</button>
+        		<button onClick={() => this.GetData()} className="btn btn-primary">Get All Jobs Using AJAX</button>
+            <LoadingMask isVisible={isVisible}/>
+            <hr />
         		<ul id="joblist"></ul>
         	</div>);
     }

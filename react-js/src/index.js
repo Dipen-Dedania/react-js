@@ -15,7 +15,6 @@ import Game from './components/game/game';
 import Agecalculator from './components/agecalculator/agecalculator';
 import Autocomplete from './components/autocomplete/index';
 import ParentChild from './components/parentchild/parentchild';
-//import {jquery, jQuery, $} from 'jquery';
 import Navigation from './components/common/Navigation'
 import TopHeader from './components/common/TopHeader';
 import RestApi from './components/restapi/restapi';
@@ -38,7 +37,7 @@ ReactDOM.render(
 			    <div>
 		        	<Route exact path="/" component={Home}/>
 				    <Route path="/about" component={About}/>
-				    <Route path="/career" component={JobsCollect}/>
+				    <Route path="/ajax" component={JobsCollect}/>
 				    <Route path="/clock" component={Clock}/>
 				    <Route path="/game" component={Game}/>
 				    <Route path="/calculator" component={Agecalculator}/>
