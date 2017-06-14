@@ -23,6 +23,7 @@ import RestApi from './components/restapi/restapi';
 import UploadFile from './components/uploadfile/uploadfile';
 import Focus from './components/focus/focus';
 import PureComponent  from './components/purecomponent/purecomponent';
+import Redux from './redux/redux'
 
 //Importing CSS
 import './index.css'
@@ -53,7 +54,8 @@ ReactDOM.render(
 					<Route exact path="/secretpage" component={SecretPage}/> 
 					<Route exact path="/login" component={Login} /> 
 					<Route exact path="/focus" component={Focus} />
-					<Route exact path="/purecomponent" component={PureComponent} /> 
+					<Route exact path="/purecomponent" component={PureComponent} />
+					<Route exact path="/redux" component={Redux} />
 				</div>
 	        </div>
 	    </div>

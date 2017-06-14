@@ -1,0 +1,46 @@
+.App {
+    padding-top: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.title {
+    text-align: center;
+    font-size: 26px;
+}
+
+input {
+    margin: 5px;
+}
+
+.reminder-form {
+    padding: 5px;
+}
+
+.list-item {
+    display: inline-block;
+}
+
+.delete-button {
+    float: right;
+    padding-left: 5px;
+    color: red;
+    font-size: 30px;
+}
+
+.white-color-shadow {
+    background-color: #fff;
+    box-shadow: 3px 3px 8px 0px rgba(0,0,0,0.5);
+    margin-bottom: 5px;
+}
+
+.reminder-text{
+    font-weight: 800;
+    font-family: monospace;
+    font-size: 18px;
+}
+
+.cursor-pointer{
+    cursor: pointer;
+}

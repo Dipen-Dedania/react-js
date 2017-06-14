@@ -89,6 +89,9 @@ class Navigation extends Component {
                         <li className={this.activeRoute("/secretpage")}>
                             <NavLink to="/secretpage" activeClassName="active"><i className="fa fa-th-large"></i> <span className="nav-label">Secret Page</span></NavLink>
                         </li>
+                        <li className={this.activeRoute("/redux")}>
+                            <NavLink to="/redux" activeClassName="active"><i className="fa fa-th-large"></i> <span className="nav-label">Redux </span></NavLink>
+                        </li>
                     </ul>
 
             </nav>
