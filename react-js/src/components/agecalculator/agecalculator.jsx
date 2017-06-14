@@ -1,6 +1,7 @@
 import React from 'react';
 //Importing CSS
 import './agecalculator.css'
+import '../../style.css'
 
 class Agecalculator extends React.Component {
 
@@ -83,30 +84,21 @@ class Agecalculator extends React.Component {
         return (
             <div>
                 <div>
-                    <p>num1</p>
-                    <input type="text" value={num1}  onChange={this.updateMe}/>
+                    <p className="p-style-1">Input Number</p>
+                    <input className="form-control" type="text" value={num1}  onChange={this.updateMe}/>
+                    <button className="btn btn-primary btn-style-1" onClick={this.doubleIt.bind(this,num1, num2)} > Double it! </button>
                 </div>
 
                 <div>
-                    <p>num2</p>
-                    <input type="text"  readOnly value={num2} />
+                    <p className="p-style-2">Output Num</p>
+                    <input className="form-control" type="text"  readOnly value={num2} />
                 </div>
-
+                <hr/>
                 <div>
-                    <p>DOB</p>
-                    <input type="text"  value={dob}  onChange={this.updateDob}/>
-                </div>
-
-                <div className="single-line">
-                    <button onClick={this.doubleIt.bind(this,num1, num2)} > Double it! </button>
-                </div>
-
-                <div className="single-line">
-                    <button placeholder="dd-mm-yyyy"  onClick={this.CalculateDOB.bind(this,dob)} > Calculate Age! </button>
-                </div>
-
-                <div className="single-line">
-                    <button placeholder="dd-mm-yyyy"  onClick={this.toggle} > Toggle! </button>
+                    <p className="p-style-1">Enter Your DOB</p>
+                    <input className="form-control" type="text"  value={dob}  onChange={this.updateDob}/>
+                    <button className="btn btn-primary btn-style-1" placeholder="dd-mm-yyyy"  onClick={this.CalculateDOB.bind(this,dob)} > Calculate Age! </button>
+                    <button className="btn btn-primary btn-style-2" placeholder="dd-mm-yyyy"  onClick={this.toggle} > Toggle! </button>
                 </div>
 
                 {this.state.showAge && < Result year ={this.state.year} month = {this.state.month} day = {this.state.day} />}
