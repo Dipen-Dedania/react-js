@@ -6,7 +6,8 @@ class UploadFile extends React.Component {
         return (
         	<div>
         		<h1>UploadFile</h1>
-            <div>{this.props.location.pathname}</div>
+	            <div>{this.props.location.pathname}</div>
+	            <h1>Comming soon.</h1>
         	</div>);
     }
 }

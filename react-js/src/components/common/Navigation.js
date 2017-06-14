@@ -62,11 +62,17 @@ class Navigation extends Component {
                         <li className={this.activeRoute("/clock")}>
                             <NavLink to="/clock" activeClassName="active"><i className="fa fa-th-large"></i> <span className="nav-label">Clock With State</span></NavLink>
                         </li>
+                        <li className={this.activeRoute("/focus")}>
+                            <NavLink to="/focus" activeClassName="active"><i className="fa fa-th-large"></i> <span className="nav-label">Focus</span></NavLink>
+                        </li>
                         <li className={this.activeRoute("/game")}>
                             <NavLink to="/game" activeClassName="active"><i className="fa fa-th-large"></i> <span className="nav-label">Tic Tac Toe</span></NavLink>
                         </li>
                         <li className={this.activeRoute("/calculator")}>
                             <NavLink to="/calculator" activeClassName="active"><i className="fa fa-th-large"></i> <span className="nav-label">Age Calculator & More </span></NavLink>
+                        </li>
+                        <li>
+                            <NavLink to="/purecomponent" activeClassName="active"><i className="fa fa-th-large"></i> <span className="nav-label">Pure Component</span></NavLink>
                         </li>
                         <li className={this.activeRoute("/autocomplete")}>
                             <NavLink to="/autocomplete" activeClassName="active"><i className="fa fa-th-large"></i> <span className="nav-label">Autocomplete</span></NavLink>
@@ -79,6 +85,9 @@ class Navigation extends Component {
                         </li>
                         <li className={this.activeRoute("/uploadfile")}>
                             <NavLink to="/uploadfile" activeClassName="active"><i className="fa fa-th-large"></i> <span className="nav-label">Upload File</span></NavLink>
+                        </li>
+                        <li className={this.activeRoute("/secretpage")}>
+                            <NavLink to="/secretpage" activeClassName="active"><i className="fa fa-th-large"></i> <span className="nav-label">Secret Page</span></NavLink>
                         </li>
                     </ul>
 
