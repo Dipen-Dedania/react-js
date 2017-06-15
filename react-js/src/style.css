@@ -8492,7 +8492,7 @@ body.md-skin {
     display: block;
   }
   .navbar-static-side {
-    display: none;
+    position: absolute;
   }
   body:not(.mini-navbar) {
     -webkit-transition: background-color 500ms linear;
