@@ -24,7 +24,7 @@ import UploadFile from './components/uploadfile/uploadfile';
 import Focus from './components/focus/focus';
 import PureComponent  from './components/purecomponent/purecomponent';
 import Redux from './redux/redux'
-import Button from './components/button/button'
+import {ButtonComp} from './components/button/button'
 
 class RouteList extends React.Component {
     render(){
@@ -45,7 +45,7 @@ class RouteList extends React.Component {
 				<Route exact path="/focus" component={Focus} />
 				<Route exact path="/purecomponent" component={PureComponent} /> 
 				<Route exact path="/redux" component={Redux} />
-				<Route exact path="/button" component={Button} />
+				<Route exact path="/button" component={ButtonComp} />
 			</div>
 			);
     }

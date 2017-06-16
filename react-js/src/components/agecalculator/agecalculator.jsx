@@ -2,6 +2,8 @@ import React from 'react';
 //Importing CSS
 import './agecalculator.css'
 import '../../style.css'
+import {SimpleButton} from '../button/button'
+import {Panel} from 'react-bootstrap'
 
 class Agecalculator extends React.Component {
 
@@ -77,7 +79,15 @@ class Agecalculator extends React.Component {
         });
     }
 
+
     render(){
+
+        const sampleData = {
+            buttontype : 'warning',
+            buttontext : 'Test' ,
+            buttonsize : '25'
+        }
+
         const num1 = this.state.num1;
         const num2 = this.state.num2;
         const dob = this.state.dob;
@@ -103,6 +113,10 @@ class Agecalculator extends React.Component {
 
                 {this.state.showAge && < Result year ={this.state.year} month = {this.state.month} day = {this.state.day} />}
 
+                <Panel>
+                    <h4>Accessing the Reusable button component from <em><b>Reusable Component Tab</b></em></h4>
+                    <SimpleButton Data = {sampleData}/>
+                </Panel>
             </div>)
     }
 }
