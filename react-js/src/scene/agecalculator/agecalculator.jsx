@@ -15,14 +15,51 @@ class Agecalculator extends React.Component {
         this.toggle = this.toggle.bind(this);
         this.CalculateDOB = this.CalculateDOB.bind(this);
         this.state = {
-            num1: 5,
+            num1: '',
             num2: 1,
             dob : '11-10-1993',
             year : '0',
             month : '0',
             day : '0',
-            showAge : false
+            showAge : false,
+            formErrors : {email: '', password: '',number: ''},
+            formValid : false
         };
+    }
+
+    //This Flag disables or enables the button click based on its value
+    validateForm() {
+        this.setState({formValid: this.state.formValid});
+    }
+
+    //Generic Validation
+    validateField(fieldName, value) {
+        console.log("Inside value is ",value)
+        let fieldValidationErrors = this.state.formErrors;
+        let number = this.state.num1;
+        let formValid = this.state.formValid
+
+        switch(fieldName) {
+            case 'email':
+                //emailValid = value.match(/^([\w.%+-]+)@([\w-]+\.)+([\w]{2,})$/i);
+                //fieldValidationErrors.email = emailValid ? '' : ' is invalid';
+                break;
+            case 'password':
+                //passwordValid = value.length >= 6;
+                //fieldValidationErrors.password = passwordValid ? '': ' is too short';
+                break;
+            case 'number':
+                formValid = !isNaN(value)
+                fieldValidationErrors.number = isNaN(value) ? 'Please enter number': '';
+                break;
+            default:
+                break;
+        }
+        this.setState({formErrors: fieldValidationErrors,
+            num1: value,
+            formErrors : fieldValidationErrors,
+            formValid : formValid
+        },this.validateForm);
     }
 
     doubleIt(num1, num2) {
@@ -60,9 +97,11 @@ class Agecalculator extends React.Component {
     updateMe(e) {
         console.log("updateMe");
         console.log(e.target.value);
-        this.setState({
-            num1: e.target.value
-        });
+        // this.setState({
+        //     num1: e.target.value
+        // });
+        this.validateField("number",e.target.value)
+
     }
 
     updateDob(e) {
@@ -82,6 +121,19 @@ class Agecalculator extends React.Component {
 
     render(){
 
+        const FormErrors = ({formErrors}) =>
+            <div className='formErrors'>
+                {Object.keys(formErrors).map((fieldName, i) => {
+                    if(formErrors[fieldName].length > 0){
+                        return (
+                            <p key={i}>{fieldName} {formErrors[fieldName]}</p>
+                        )
+                    } else {
+                        return '';
+                    }
+                })}
+            </div>
+
         const sampleData = {
             buttontype : 'warning',
             buttontext : 'Test' ,
@@ -93,16 +145,28 @@ class Agecalculator extends React.Component {
         const dob = this.state.dob;
         return (
             <div>
+                <br/>
+                <br/>
+
                 <div>
                     <p className="p-style-1">Input Number</p>
                     <input className="form-control" type="text" value={num1}  onChange={this.updateMe}/>
-                    <button className="btn btn-primary btn-style-1" onClick={this.doubleIt.bind(this,num1, num2)} > Double it! </button>
+                    <button className="btn btn-primary btn-style-1"
+                            onClick={this.doubleIt.bind(this,num1, num2)}
+                            disabled={!this.state.formValid}
+                    > Double it! </button>
                 </div>
 
                 <div>
                     <p className="p-style-2">Output Num</p>
                     <input className="form-control" type="text"  readOnly value={num2} />
                 </div>
+
+                {/*Added this div for displaying validation message*/ }
+                <div className="panel panel-default">
+                    <FormErrors formErrors={this.state.formErrors} />
+                </div>
+
                 <hr/>
                 <div>
                     <p className="p-style-1">Enter Your DOB</p>
@@ -133,3 +197,8 @@ class Result extends React.Component{
 }
 
 export default Agecalculator;
+
+
+//For Sample form validation
+//1. https://www.npmjs.com/package/react-validation
+// 2. https://github.com/learnetto/react-form-validation-demo
