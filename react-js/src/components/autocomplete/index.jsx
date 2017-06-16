@@ -6,6 +6,8 @@ import {
   Link
 } from 'react-router-dom'
 
+
+
 import A1 from './a1';
 import A2 from './a2';
 
@@ -67,4 +69,12 @@ class Autocomplete extends React.Component {
     }
 }
 
-export default Autocomplete;
+//Here Exported multiple Components from single JSX file
+export {
+    Card,
+    InnerTabs,
+    Autocomplete
+}
+
+//Normal Syntax for exporting single component
+//export default Autocomplete;

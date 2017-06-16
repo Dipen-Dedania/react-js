@@ -16,7 +16,8 @@ import Login from './components/secretpage/login';
 import Clock from './components/clock/clock';
 import Game from './components/game/game';
 import Agecalculator from './components/agecalculator/agecalculator';
-import Autocomplete from './components/autocomplete/index';
+//Here Exported multiple Components from single JSX file
+import {Autocomplete} from './components/autocomplete/index';
 import ParentChild from './components/parentchild/parentchild';
 import RestApi from './components/restapi/restapi';
 import UploadFile from './components/uploadfile/uploadfile';
