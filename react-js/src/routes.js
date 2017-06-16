@@ -25,6 +25,7 @@ import Focus from './components/focus/focus';
 import PureComponent  from './components/purecomponent/purecomponent';
 import Redux from './redux/redux'
 import {ButtonComp} from './components/button/button'
+import FunctionalProgramming from './components/fp/fp'
 
 class RouteList extends React.Component {
     render(){
@@ -46,6 +47,7 @@ class RouteList extends React.Component {
 				<Route exact path="/purecomponent" component={PureComponent} /> 
 				<Route exact path="/redux" component={Redux} />
 				<Route exact path="/button" component={ButtonComp} />
+				<Route exact path="/fp" component={FunctionalProgramming} />
 			</div>
 			);
     }

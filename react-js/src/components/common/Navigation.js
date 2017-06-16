@@ -61,6 +61,7 @@ class Navigation extends Component {
                         <NavigationLink to="/secretpage" navlabel="Secret Page" />
                         <NavigationLink to="/redux" navlabel="Redux" />
                         <NavigationLink to="/button" navlabel="Reusable Components" />
+                        <NavigationLink to="/fp" navlabel="Functional Programming Sample" />
                     </ul>
 
             </nav>
