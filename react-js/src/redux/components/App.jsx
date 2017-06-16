@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { addReminder , deleteReminder, clearReminders} from '../actions/actions';
+import { addReminder , deleteReminder, clearReminders,filterReminders} from '../actions/actions';
 import {bindActionCreators} from 'redux';
 import moment from 'moment';
 
@@ -11,6 +11,7 @@ class App extends Component {
             text: '',
             dueDate: ''
         }
+        this.filterReminders = this.filterReminders.bind(this);
     }
 
     //After call the control reaches here it will go to reducers to from where data will be going to the store to save it.
@@ -21,6 +22,11 @@ class App extends Component {
 
     deleteReminders(id) {
         this.props.deleteReminder(id);
+    }
+
+    filterReminders(e) {
+        console.log(e.target.value);
+        this.props.filterReminders(e.target.value);
     }
 
     renderReminders() {
@@ -76,6 +82,11 @@ class App extends Component {
                     >
                         Add Reminder
                     </button>
+                    {/*<input*/}
+                        {/*className="form-control"*/}
+                        {/*placeholder="Search "*/}
+                        {/*onChange={this.filterReminders}*/}
+                    {/*/>*/}
                 </div>
                 { this.renderReminders() }
                 <div
@@ -100,7 +111,8 @@ function matchDispatchToProps(dispatch){
     return bindActionCreators({
         addReminder:addReminder,
         deleteReminder:deleteReminder,
-        clearReminders:clearReminders
+        clearReminders:clearReminders,
+        filterReminders:filterReminders
     },dispatch)
 }
 

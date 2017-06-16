@@ -1,4 +1,4 @@
-import { ADD_REMINDER, DELETE_REMINDER, CLEAR_REMINDERS } from '../constants';
+import { ADD_REMINDER, DELETE_REMINDER, CLEAR_REMINDERS,FILTER_REMINDERS } from '../constants';
 
 //From here the control goes to switch case inside the reducers
 
@@ -25,5 +25,13 @@ export const deleteReminder = (id) => {
 export const clearReminders = () => {
     return {
         type: CLEAR_REMINDERS
+    }
+}
+
+
+export const filterReminders = (text) => {
+    return {
+        type: FILTER_REMINDERS,
+        text
     }
 }
