@@ -60,6 +60,7 @@ class Navigation extends Component {
                         <NavigationLink to="/uploadfile" navlabel="Upload File" />
                         <NavigationLink to="/secretpage" navlabel="Secret Page" />
                         <NavigationLink to="/redux" navlabel="Redux" />
+                        <NavigationLink to="/button" navlabel="Reusable Components" />
                     </ul>
 
             </nav>
