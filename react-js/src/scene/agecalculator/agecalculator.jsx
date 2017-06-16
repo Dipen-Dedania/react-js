@@ -50,18 +50,18 @@ class Agecalculator extends React.Component {
                 break;
             case 'number':
                 formValid = !isNaN(value)
-                fieldValidationErrors.number = isNaN(value) ? 'Please enter number': '';
+                fieldValidationErrors.number = isNaN(value) ? 'Enter a valid number': '';
                 break;
             default:
                 break;
         }
         this.setState({formErrors: fieldValidationErrors,
             num1: value,
-            formErrors : fieldValidationErrors,
             formValid : formValid
         },this.validateForm);
     }
 
+    //Doubles the given number
     doubleIt(num1, num2) {
         this.setState({
             num2: (num1 * 2 )
@@ -118,7 +118,6 @@ class Agecalculator extends React.Component {
         });
     }
 
-
     render(){
 
         const FormErrors = ({formErrors}) =>
@@ -126,7 +125,7 @@ class Agecalculator extends React.Component {
                 {Object.keys(formErrors).map((fieldName, i) => {
                     if(formErrors[fieldName].length > 0){
                         return (
-                            <p key={i}>{fieldName} {formErrors[fieldName]}</p>
+                            <p key={i}>{formErrors[fieldName]}</p>
                         )
                     } else {
                         return '';
