@@ -15,6 +15,7 @@ function NavigationLink(props) {
             <NavLink to={props.to} activeClassName="active">
                 <i className="fa fa-th-large"></i> 
                 <span className="nav-label">{props.navlabel}</span>
+                {props.thisisnew && <span className="label label-primary pull-right">NEW</span>}
             </NavLink>
         </li>);
 }
@@ -57,11 +58,10 @@ class Navigation extends Component {
                         <NavigationLink to="/autocomplete" navlabel="Autocomplete" />
                         <NavigationLink to="/parentchild" navlabel="Parent child value passing techniques" />
                         <NavigationLink to="/restapi" navlabel="REST API" />
-                        <NavigationLink to="/uploadfile" navlabel="Upload File" />
+                        <NavigationLink to="/uploadfile" navlabel="Upload File" thisisnew />
                         <NavigationLink to="/secretpage" navlabel="Secret Page" />
                         <NavigationLink to="/redux" navlabel="Redux" />
                         <NavigationLink to="/button" navlabel="Reusable Components" />
-                        <NavigationLink to="/fp" navlabel="Functional Programming Sample" />
                     </ul>
 
             </nav>
