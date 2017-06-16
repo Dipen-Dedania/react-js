@@ -78,15 +78,21 @@ class Game extends React.Component {
     }
 
     return (
-      <div className="game">
-        <div className="game-board">
-          <Board
-            squares={current}
-            onClick={i => this.update(i)}
-          />
-        </div>
-        <div className="game-info">
-          <div>{status}</div>
+      <div>
+        <h1>Tic Tac Toe (X, O)</h1>
+        <hr/>
+        <div className="game">
+          
+          <br/>
+          <div className="game-board">
+            <Board
+              squares={current}
+              onClick={i => this.update(i)}
+            />
+          </div>
+          <div className="game-info">
+            <div>{status}</div>
+          </div>
         </div>
       </div>
     );
