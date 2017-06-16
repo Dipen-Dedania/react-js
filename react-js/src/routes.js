@@ -8,24 +8,24 @@ import {
 } from 'react-router-dom'
 
 //import all the modules
-import Home from './components/app/app';
-import About from './components/mainpage/mainpage';
-import JobsCollect from './components/somepage/somepage';
-import SecretPage from './components/secretpage/secretpage';
-import Login from './components/secretpage/login';
-import Clock from './components/clock/clock';
-import Game from './components/game/game';
-import Agecalculator from './components/agecalculator/agecalculator';
+import Home from './scene/app/app';
+import About from './scene/mainpage/mainpage';
+import JobsCollect from './scene/somepage/somepage';
+import SecretPage from './scene/secretpage/secretpage';
+import Login from './scene/secretpage/login';
+import Clock from './scene/clock/clock';
+import Game from './scene/game/game';
+import Agecalculator from './scene/agecalculator/agecalculator';
 //Here Exported multiple Components from single JSX file
-import {Autocomplete} from './components/autocomplete/index';
-import ParentChild from './components/parentchild/parentchild';
-import RestApi from './components/restapi/restapi';
-import UploadFile from './components/uploadfile/uploadfile';
-import Focus from './components/focus/focus';
-import PureComponent  from './components/purecomponent/purecomponent';
-import Redux from './redux/redux'
-import {ButtonComp} from './components/button/button'
-import FunctionalProgramming from './components/fp/fp'
+import {Autocomplete} from './scene/autocomplete/index';
+import ParentChild from './scene/parentchild/parentchild';
+import RestApi from './scene/restapi/restapi';
+import UploadFile from './scene/uploadfile/uploadfile';
+import Focus from './scene/focus/focus';
+import PureComponent  from './scene/purecomponent/purecomponent';
+import Redux from './scene/redux/redux'
+import {ButtonComp} from './components/theme_components/button/button'
+import FunctionalProgramming from './scene/fp/fp'
 
 class RouteList extends React.Component {
     render(){

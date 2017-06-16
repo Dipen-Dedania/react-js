@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import axios from 'axios';
-import LoadingMask from '../common/LoadingMask';
+import LoadingMask from '../../components/common/LoadingMask';
 
 
 function JobList(props) {

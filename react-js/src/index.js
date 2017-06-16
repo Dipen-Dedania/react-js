@@ -12,8 +12,6 @@ import RouteList from './routes'
 //Importing CSS
 import './index.css'
 import './style.css'
-import './components/agecalculator/agecalculator.css'
-import './components/parentchild/parentchild.css'
 import './../node_modules/font-awesome/css/font-awesome.css'
 
 // exact in router - When true, will only match if the path matches the location.pathname exactly.

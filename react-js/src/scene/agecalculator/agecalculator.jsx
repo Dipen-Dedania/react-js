@@ -2,7 +2,7 @@ import React from 'react';
 //Importing CSS
 import './agecalculator.css'
 import '../../style.css'
-import {SimpleButton} from '../button/button'
+import {SimpleButton} from '../../components/theme_components/button/button'
 import {Panel} from 'react-bootstrap'
 
 class Agecalculator extends React.Component {
