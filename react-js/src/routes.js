@@ -26,6 +26,7 @@ import Redux from './scene/redux/redux'
 //Here Exported multiple Components from single JSX file
 import {ButtonComp} from './components/theme_components/button/button'
 import FunctionalProgramming from './scene/fp/fp'
+import SimpleSlider from './scene/carousel/carousel'
 
 class RouteList extends React.Component {
     render(){
@@ -48,6 +49,7 @@ class RouteList extends React.Component {
 				<Route exact path="/redux" component={Redux} />
 				<Route exact path="/button" component={ButtonComp} />
 				<Route exact path="/fp" component={FunctionalProgramming} />
+				<Route exact path="/carousel" component={SimpleSlider} />
 			</div>
 			);
     }

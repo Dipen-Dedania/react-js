@@ -34,20 +34,7 @@ class Navigation extends Component {
         return (
             <nav className="navbar-default navbar-static-side" role="navigation">
                     <ul className="nav metismenu" id="side-menu" ref="menu">
-                        <li className="nav-header">
-                            <div className="dropdown profile-element"> <span>
-                             </span>
-                                <a data-toggle="dropdown" className="dropdown-toggle" href="#">
-                            <span className="clear"> <span className="block m-t-xs"> <strong className="font-bold">React tutorials</strong>
-                             </span> <span className="text-muted text-xs block">Checkout tabs<b className="caret"></b></span> </span> </a>
-                                <ul className="dropdown-menu animated fadeInRight m-t-xs">
-                                    <li><a href="#"> Logout</a></li>
-                                </ul>
-                            </div>
-                            <div className="logo-element">
-                                DD+
-                            </div>
-                        </li>
+                        <SideBarDetail />
                         <NavigationLink to="/about" navlabel="About" />
                         <NavigationLink to="/ajax" navlabel="Ajax" />
                         <NavigationLink to="/clock" navlabel="Clock With State" />
@@ -62,11 +49,31 @@ class Navigation extends Component {
                         <NavigationLink to="/secretpage" navlabel="Secret Page" />
                         <NavigationLink to="/redux" navlabel="Redux" />
                         <NavigationLink to="/button" navlabel="Reusable Components" />
+                        <NavigationLink to="/carousel" navlabel="Carousel Demo" />
                     </ul>
 
             </nav>
         )
     }
 }
+
+function SideBarDetail(){
+        return (
+            <li className="nav-header">
+                <div className="dropdown profile-element"> <span>
+                    </span>
+                    <a data-toggle="dropdown" className="dropdown-toggle" href="#">
+                <span className="clear"> <span className="block m-t-xs"> <strong className="font-bold">React tutorials</strong>
+                    </span> <span className="text-muted text-xs block">Checkout tabs<b className="caret"></b></span> </span> </a>
+                    <ul className="dropdown-menu animated fadeInRight m-t-xs">
+                        <li><a href="#"> Logout</a></li>
+                    </ul>
+                </div>
+                <div className="logo-element">
+                    DD+
+                </div>
+            </li>
+        )
+    }
 
 export default Navigation

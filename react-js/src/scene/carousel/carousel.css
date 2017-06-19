@@ -1,0 +1,28 @@
+
+.boxw {
+    padding: 15px;
+}
+
+.images-slider{
+    width: 100%;
+    height: 400px;
+}
+
+.bgimg {
+    height: 400px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.inside-content{
+    margin-left: 20px;
+}
+
+.content{
+    color: white;
+    text-align: center;
+    font-size: 20px;
+    font-family: monospace;
+    font-weight: 800;
+}
