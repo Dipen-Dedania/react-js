@@ -81,10 +81,19 @@ class ButtonComp extends React.Component{
 }
 
 class SimpleButton extends React.Component{
+    constructor(props) {
+        super(props);
+        this.handleClick = this.handleClick.bind(this);
+    }
+    
+    handleClick (props){
+        this.props.handleClick();
+    }
+
     render(){
         return(
             <div>
-                <Button bsStyle={this.props.Data.buttontype}  style={{fontSize : this.props.Data.buttonsize + 'px'}} >
+                <Button bsStyle={this.props.Data.buttontype}  style={{fontSize : this.props.Data.buttonsize + 'px'}} onClick={this.handleClick}>
                     {this.props.Data.buttontext}
                 </Button>
             </div>

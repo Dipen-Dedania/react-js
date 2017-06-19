@@ -27,6 +27,7 @@ import Redux from './scene/redux/redux'
 import {ButtonComp} from './components/theme_components/button/button'
 import FunctionalProgramming from './scene/fp/fp'
 import SimpleSlider from './scene/carousel/carousel'
+import Notification from './scene/notification/index'
 
 class RouteList extends React.Component {
     render(){
@@ -50,6 +51,7 @@ class RouteList extends React.Component {
 				<Route exact path="/button" component={ButtonComp} />
 				<Route exact path="/fp" component={FunctionalProgramming} />
 				<Route exact path="/carousel" component={SimpleSlider} />
+				<Route exact path="/notification" component={Notification} />
 			</div>
 			);
     }

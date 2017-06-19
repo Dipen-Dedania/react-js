@@ -50,6 +50,7 @@ class Navigation extends Component {
                         <NavigationLink to="/redux" navlabel="Redux" />
                         <NavigationLink to="/button" navlabel="Reusable Components" />
                         <NavigationLink to="/carousel" navlabel="Carousel Demo" />
+                        <NavigationLink to="/notification" navlabel="Notification" />
                     </ul>
 
             </nav>
