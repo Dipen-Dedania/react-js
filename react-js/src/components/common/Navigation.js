@@ -51,6 +51,7 @@ class Navigation extends Component {
                         <NavigationLink to="/button" navlabel="Reusable Components" />
                         <NavigationLink to="/carousel" navlabel="Carousel Demo" />
                         <NavigationLink to="/notification" navlabel="Notification" />
+                        <NavigationLink to="/lifecycle" navlabel="Lifecycle" />
                     </ul>
 
             </nav>
