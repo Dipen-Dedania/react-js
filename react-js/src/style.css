@@ -8430,6 +8430,7 @@ body.md-skin {
     position: inherit;
     margin: 0 0 0 220px;
     min-height: 1200px;
+    height: 100%;
   }
   .navbar-static-side {
     z-index: 2001;
@@ -8445,8 +8446,8 @@ body.md-skin {
 @media (max-width: 768px) {
   #page-wrapper {
     position: inherit;
-    margin: 0 0 0 0;
     min-height: 1000px;
+    height: 100%;
   }
   .body-small .navbar-static-side {
     display: none;
@@ -8500,7 +8501,6 @@ body.md-skin {
     -o-transition: background-color 500ms linear;
     -ms-transition: background-color 500ms linear;
     transition: background-color 500ms linear;
-    background-color: #f3f3f4;
   }
 }
 @media (max-width: 350px) {
