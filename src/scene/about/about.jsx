@@ -7,7 +7,7 @@ class MainPage extends React.Component {
         	<div>
         		<h1>About</h1>
 				<Panel>
-					<h1> Stay tunned for more updates! :P </h1>
+					<h1> Stay tunned for more updates! :P :P</h1>
 				</Panel>
         	</div>
         	);
