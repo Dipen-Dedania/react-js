@@ -76,7 +76,7 @@ class LoginSample extends React.Component {
 				            <div className="">
 				               <div className="row">
 				                  <div className="col-md-3 col-lg-3">
-									<UxButton ButtonSize="18" ButtonColor="#4b4b4b" TextColor="#fff" ButtonText=" Log in"/>
+									<UxButton ButtonSize="18" ButtonColor="#cdcdcd" TextColor="#000" ButtonText=" Log in"/>
 				                  </div>
 				                  <div className="col-md-9 col-lg-9 text-right centerSm">
 				                  	<a id="ux-forgot-pw" className="ux-sibling-pad inline-block ux-form-action-link" href="http://test.peddle.com/forgot-password">Forgot your password?</a>
