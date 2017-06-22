@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import {Button,Row,Col} from 'react-bootstrap';
 
 class LoginInput extends React.Component {
 	render(){
@@ -15,6 +16,21 @@ class LoginInput extends React.Component {
 	}
 }
 
+class UxButton extends React.Component{
+    render(){
+        return(
+                <Button
+					style={{fontSize : this.props.ButtonSize + 'px' ,
+					backgroundColor: this.props.ButtonColor,
+					color:this.props.TextColor, 
+					borderRadius:"6px",
+					width: "100%" }} >
+                    {this.props.ButtonText}
+                </Button>
+        )
+    }
+}
+
 class LoginSample extends React.Component {
     render(){
         return (
@@ -27,19 +43,11 @@ class LoginSample extends React.Component {
 				      <div className="panel-body">
 				         <div className="socials">
 				            <div className="row">
-				               <div className="col-xs-6 col-sm-6 col-md-6">
-					               <button id="ux-google-login" className="btn btn-block btn-sm btn-danger" type="button" data-gid="xxxxxxxxxxxx-xxxxxxxxxxxx">
-						               <span className="icon-google-custom"></span> 
-						               <span className=" hidden-sm hidden-md hidden-lg">  Continue</span> 
-						               <span className="hidden-xs"> Continue with Google</span>
-					               </button>
+				              <div className="col-xs-6 col-sm-6 col-md-6">
+								   <UxButton ButtonSize="14" ButtonColor="#FF585D" TextColor="#fff" ButtonText=" Continue with Google"/>
 				               </div>
 				               <div className="col-xs-6 col-sm-6 col-md-6">
-					               	<button id="ux-facebook-login" className="btn btn-block btn-sm btn-primary" type="button">
-						               	<span className="icon-facebook-circled-1"></span>
-						               	<span className=" hidden-sm hidden-md hidden-lg">  Continue</span>
-						               	<span className="hidden-xs"> Continue with Facebook</span>
-				               	  	</button>
+									<UxButton ButtonSize="14" ButtonColor="#3a68bd" TextColor="#fff" ButtonText=" Continue with Facebook"/>
 			               	  	</div>
 				            </div>
 				            <div className="ux-hr-devider"><span>or</span></div>
@@ -58,16 +66,14 @@ class LoginSample extends React.Component {
 				            </div>
 				            <div className="ux-error-container hiddenNIU hidden">
 				               <div className="alert alert-danger alert-dismissible" role="alert" >
-					               <button type="button" className="close" aria-label="close">
-					               		<span type="button" className="icon-cancel-circled" aria-hidden="true"></span>
-					               </button>
+								   <UxButton ButtonSize="14" ButtonColor="#3a68bd" TextColor="#fff" ButtonText=" Continue with Google"/>
 					               <strong id="ux-email-error" className="error">Enter valid email address.</strong>
 				               </div>
 				            </div>
 				            <div className="">
 				               <div className="row">
 				                  <div className="col-md-3 col-lg-3">
-				                  	<button id="ux-login" type="button" className="btn btn-default btn-block ux-form-action-button" data-loading-text="Logging in...">Log in</button>
+									<UxButton ButtonSize="18" ButtonColor="#4b4b4b" TextColor="#fff" ButtonText=" Log in"/>
 				                  </div>
 				                  <div className="col-md-9 col-lg-9 text-right centerSm">
 				                  	<a id="ux-forgot-pw" className="ux-sibling-pad inline-block ux-form-action-link" href="http://test.peddle.com/forgot-password">Forgot your password?</a>
