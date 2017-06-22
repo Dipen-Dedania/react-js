@@ -1,20 +1,17 @@
 import React, { Component } from 'react';
 import {Button,Row,Col} from 'react-bootstrap';
-
-const relativePosition = {
-  position: 'relative'
-}
+import './sample.css'
 
 class LoginInput extends React.Component {
 	render(){
 		return (
-			<div className="form-group has-feedback" style={relativePosition}>
+			<div className="form-group">
            		<input name="uxEmail"
            			 type={this.props.Type} 
            			 className="form-control input-box" 
            			 placeholder={this.props.Placeholder} 
            			 maxLength={this.props.MaxLength} />
-                <span id="ux-email-feed" className="form-control-feedback icon-cancel-circled"> X </span>
+                <span id="ux-email-feed" className="form-control-feedback icon-cancel-circled" aria-hidden="true"></span>
             </div>
 			)
 	}
@@ -28,7 +25,8 @@ class UxButton extends React.Component{
 					backgroundColor: this.props.ButtonColor,
 					color:this.props.TextColor, 
 					borderRadius:"6px",
-					width: "100%" }} >
+					width: "100%" ,
+					padding: "12px 12px"}} >
                     {this.props.ButtonText}
                 </Button>
         )
@@ -39,6 +37,7 @@ class LoginSample extends React.Component {
     render(){
         return (
         	<div>
+				<br/>
         		<div className="col-sm-12 col-md-8 col-md-offset-2 col-lg-8 col-lg-offset-2">
 				   <div className="panel panel-default">
 				      <div className="panel-heading">
@@ -68,10 +67,19 @@ class LoginSample extends React.Component {
 				                  &nbsp;&nbsp;Stay logged in
 				               </label>
 				            </div>
+				            <div className="ux-error-container hiddenNIU hidden">
+				               <div className="alert alert-danger alert-dismissible" role="alert" >
+								   <UxButton ButtonSize="14" ButtonColor="#3a68bd" TextColor="#fff" ButtonText=" Continue with Google"/>
+					               <strong id="ux-email-error" className="error">Enter valid email address.</strong>
+				               </div>
+				            </div>
 				            <div className="">
 				               <div className="row">
 				                  <div className="col-md-3 col-lg-3">
-									<UxButton ButtonSize="18" ButtonColor="#cdcdcd" TextColor="#4b4b4b" ButtonText=" Log in"/>
+									<UxButton ButtonSize="18" ButtonColor="#4b4b4b" TextColor="#fff" ButtonText=" Log in"/>
+				                  </div>
+				                  <div className="col-md-9 col-lg-9 text-right centerSm">
+				                  	<a id="ux-forgot-pw" className="ux-sibling-pad inline-block ux-form-action-link" href="http://test.peddle.com/forgot-password">Forgot your password?</a>
 				                  </div>
 				               </div>
 				            </div>

@@ -2,8 +2,74 @@
 	cursor: pointer;
 }
 
-.input-box{
-	font-size: 18px;
+.input-box {
+    font-size: 18px;
     height: 56px;
     padding: 16px 16px;
+    border: 2px solid #cdcdcd ;
+    border-radius: 6px;
+    color: #4b4b4b ;
+}
+
+.ux-hr-devider {
+    position: relative;
+    z-index: 1;
+    font-size: 16px;
+    color: #4b4b4b;
+    margin-top: 17px;
+    margin-bottom: 17px;
+    text-align: center;
+}
+
+.ux-hr-devider:before {
+    border-top: 1px solid #cdcdcd;
+    content: "";
+    margin: 0 auto;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    z-index: -1;
+}
+
+.ux-hr-devider span {
+    background: #fff;
+    padding: 0 15px;
+}
+
+
+.panel-title {
+    margin-top: 0;
+    margin-bottom: 0;
+    font-size: 24px;
+    color: inherit;
+    line-height: 22px;
+}
+
+.panel-default {
+    border-color: #cdcdcd;
+}
+
+.panel {
+    margin-bottom: 20px;
+    background-color: #fff;
+    border: 1px solid transparent;
+    border-radius: 12px;
+    -webkit-box-shadow: 0 1px 1px rgba(0,0,0,.05);
+    box-shadow: 0 1px 1px rgba(0,0,0,.05);
+}
+
+.panel-default>.panel-heading {
+    color: #4b4b4b;
+    background-color: #fff;
+    border-color: #cdcdcd;
+}
+
+.panel-heading {
+    padding: 20px 20px;
+    border-bottom: 1px solid transparent;
+    border-top-right-radius: 11px;
+    border-top-left-radius: 11px;
 }
