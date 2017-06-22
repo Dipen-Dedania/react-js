@@ -11,6 +11,7 @@ import Get from './get'
 import Post from './post'
 import Delete from './delete'
 import Put from './put'
+import {Panel} from 'react-bootstrap'
 
 class ApiComponent extends React.Component{
     render(){
@@ -18,6 +19,10 @@ class ApiComponent extends React.Component{
         const postURL = "/restapi/post";
         const deleteURL = "/restapi/delete"
         const putURL = "/restapi/put"
+
+        var style = {
+            color: 'red',
+        };
 
         return (
             <div>
@@ -30,6 +35,9 @@ class ApiComponent extends React.Component{
                     <Card text="Put" cardName = "Put" URL = {putURL}/>
                     <Card text="Delete" cardName = "Delete" URL = {deleteURL}/>
                 </div>
+                <Panel>
+                    <h4>Please Note Server API's are not working. <em><p style={style}>works only on local server</p></em></h4>
+                </Panel>
             </div>
         )
     }
