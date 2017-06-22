@@ -7,7 +7,7 @@ import {
 } from 'react-router-dom'
 
 import $ from 'jquery';
-import metismenu from 'metismenu';
+//import metismenu from 'metismenu';
 
 function NavigationLink(props) {
     return (
@@ -27,7 +27,7 @@ class Navigation extends Component {
 
     componentDidMount() {
         const { menu } = this.refs;
-        $(menu).metisMenu();
+        //$(menu).metisMenu();
     }
 
     render() {

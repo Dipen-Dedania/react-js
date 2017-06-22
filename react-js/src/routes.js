@@ -29,6 +29,7 @@ import FunctionalProgramming from './scene/fp/fp'
 import SimpleSlider from './scene/carousel/carousel'
 import Notification from './scene/notification/index'
 import Lifecycle from './scene/lifecycle/lifecycle'
+import LoginSample from './scene/loginsample/index'
 
 class RouteList extends React.Component {
     render(){
@@ -54,6 +55,7 @@ class RouteList extends React.Component {
 				<Route exact path="/carousel" component={SimpleSlider} />
 				<Route exact path="/notification" component={Notification} />
 				<Route exact path="/lifecycle" component={Lifecycle} />
+				<Route exact path="/loginsample" component={LoginSample} />
 			</div>
 			);
     }

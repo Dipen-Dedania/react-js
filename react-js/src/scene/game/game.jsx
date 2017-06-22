@@ -44,12 +44,13 @@ class Board extends React.Component {
 }
 
 class Game extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       stepNumber: 0,
       xIsNext: true,
-      dArray: Array(9).fill(null) 
+      // dArray: Array(9).fill(null) - This will not work in IE browser
+      dArray: [null, null, null, null, null, null, null, null, null]
     };
   }  
 

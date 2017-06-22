@@ -69,7 +69,7 @@ class Agecalculator extends React.Component {
     }
 
     CalculateDOB(dob){
-        var dobs = dob.toString();
+        let dobs = dob.toString();
         var yearThen = parseInt(dobs.substring(6,10));
         var monthThen = parseInt(dobs.substring(3,5));
         var dayThen = parseInt(dobs.substring(0,2));
