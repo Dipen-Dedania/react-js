@@ -87,7 +87,8 @@ class SimpleButton extends React.Component{
     }
     
     handleClick (props){
-        this.props.handleClick();
+        if(!!props.handleClick)
+            this.props.handleClick();
     }
 
     render(){
