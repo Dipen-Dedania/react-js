@@ -1,0 +1,1726 @@
+<!doctype html>
+<html class="no-js" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dreamcatcher | API Reference</title>
+    <link rel="stylesheet" href="stylesheets/foundation.min.css" />
+    <link rel="stylesheet" href="stylesheets/spectacle.min.css" />
+    <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+    <!-- <script src="javascripts/foundation.js"></script> -->
+    <script src="javascripts/spectacle.min.js"></script>
+  </head>
+  <body id="spectacle">
+    <div id="page" class="drawer-layout drawer-slide-right-large">
+      <div id="sidebar">
+        <button class="close-button" aria-label="Close menu" type="button" data-drawer-close>
+          <span aria-hidden="true">×</span>
+        </button>
+		<div id="logo">
+          <img src="https://zuru.tech/archplanLanding/illustrazioni/logo%20zuru.png" title="Zuru" /> </div>
+        <nav id="nav" role="navigation">
+          <h5>API Reference</h5>
+          <a href="#introduction">Introduction</a>
+          <h5>Operations</h5>
+          <section>
+            <a href="#tag-User">User</a>
+            <ul>
+              <li>
+                <a href="#operation--v1-GetAccessToken-post"> Get Access Token </a>
+              </li>
+              <li>
+                <a href="#operation--v1-GetUserByEmail-get"> Get user by email </a>
+              </li>
+              <li>
+                <a href="#operation--v1-GetUserById-get"> Get user by id </a>
+              </li>
+              <li>
+                <a href="#operation--v1-GetAllUserData-get"> Get all user data </a>
+              </li>
+            </ul>
+          </section>
+          <section>
+            <a href="#tag-Assets">Assets</a>
+            <ul>
+              <li>
+                <a href="#operation--v1-GetAssetsData-get"> Get assets data </a>
+              </li>
+            </ul>
+          </section>
+          <h5>Schema Definitions</h5>
+          <a href="#definition-AccessTokenRequest"> AccessTokenRequest </a>
+          <a href="#definition-User"> User </a>
+          <a href="#definition-UserWithProfile"> UserWithProfile </a>
+          <a href="#definition-Asset"> Asset </a>
+          <a href="#definition-AllowedIps"> AllowedIps </a>
+          <a href="#definition-LibraryObjects"> LibraryObjects </a>
+          <a href="#definition-Materials"> Materials </a>
+          <a href="#definition-MaterialCategories"> MaterialCategories </a>
+          <a href="#definition-MaterialTags"> MaterialTags </a>
+          <a href="#definition-ObjectCategories"> ObjectCategories </a>
+          <a href="#definition-ObjectTags"> ObjectTags </a>
+          <a href="#definition-ProjectCategories"> ProjectCategories </a>
+          <a href="#definition-UserProjects"> UserProjects </a>
+          <a href="#definition-Users"> Users </a>
+          <a href="#definition-UsersProfile"> UsersProfile </a>
+        </nav>
+      </div>
+      <div id="docs" class="row collapse expanded drawer" data-drawer>
+        <button class="floating-menu-icon" type="button" data-drawer-slide="right">
+          <span class="hamburger"></span>
+        </button>
+        <div class="example-box doc-content"></div>
+        <article>
+          <div id="introduction" data-traverse-target="introduction">
+            <h1 class="doc-title">Dreamcatcher
+              <span>API Reference</span>
+            </h1>
+            <div class="doc-row">
+              <div class="doc-copy">
+                <p>This is an API doc for Dreamcatcher. You can find out more about Swagger at
+                  <a href="https://zuru.tech">https://zuru.tech</a>. You can use the api key <code>special-key</code> to test the authorization filters.</p>
+              </div>
+              <div class="doc-examples">
+                <section>
+                  <h5>API Endpoint</h5>
+                  <!-- <div class="hljs"> --><pre><code>http://localhost:7777</code></pre>
+                  <!-- </div> -->
+                  <h5>Terms of Service:
+                    <a href="https://zuru.tech/terms">https://zuru.tech/terms</a>
+                  </h5>
+                  <h5>Contact:
+                    <a href="mailto:apiteam@zuru.tech">apiteam@zuru.tech</a>
+                  </h5>
+                  <h5>Schemes:
+                    <span>http</span>
+                  </h5>
+                </section>
+              </div>
+            </div>
+          </div>
+          <h1 id="tag-User" class="swagger-summary-tag" data-traverse-target="tag-User">User</h1>
+          <div class="tag-description doc-row">
+            <div class="doc-copy">
+              <p>Operations about user</p>
+            </div>
+          </div>
+          <div id="operation--v1-GetAccessToken-post" class="operation panel" data-traverse-target="operation--v1-GetAccessToken-post">
+            <!-- <section class="operation-tags row"> -->
+            <!-- <div class="doc-copy"> -->
+            <div class="operation-tags">
+              <a class="label" href="#tag-User">User</a>
+              <!---->
+            </div>
+            <!-- </div> -->
+            <!-- </section> -->
+            <h2 class="operation-title">
+              <span class="operation-summary">Get Access Token</span>
+            </h2>
+            <div class="doc-row">
+              <div class="doc-copy">
+                <section class="swagger-operation-path">
+                  <span class="operation-method">POST</span>
+                  <span class="operation-path">/v1/GetAccessToken</span>
+                </section>
+              </div>
+            </div>
+            <div class="doc-row">
+              <div class="doc-copy">
+                <section class="swagger-operation-description">
+                  <p>A registered user can get access token. It requires client&#39;s IP address to be white listed. This access token is auto expiring, it expires after 1 hour (3600 seconds) from time of issue. (For reference:
+                    <a href="https://firebase.google.com/docs/auth/admin/create-custom-tokens#create_custom_tokens_using_the_firebase_admin_sdk">https://firebase.google.com/docs/auth/admin/create-custom-tokens#create_custom_tokens_using_the_firebase_admin_sdk</a>)</p>
+                </section>
+              </div>
+            </div>
+            <div class="doc-row">
+              <div class="doc-copy">
+                <section class="swagger-request-body">
+                  <div class="prop-row">
+                    <div class="prop-name">
+                      <div class="swagger-request-model">
+                        <span class="">
+                          <a class="json-schema-ref" href="#/definitions/AccessTokenRequest">AccessTokenRequest</a>
+                        </span>
+                      </div>
+                    </div>
+                    <div class="prop-value columns small-6">
+                      <!-- <div class="swagger-request-description"> -->
+                      <p>Access token request object</p>
+                      <!-- </div> -->
+                    </div>
+                  </div>
+                </section>
+              </div>
+              <div class="doc-examples">
+                <section>
+                  <h5>Request Example</h5>
+                  <!-- <div class="hljs"> --><pre><code class="hljs lang-json">{
+  <span class="hljs-attr">&quot;email&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+  <span class="hljs-attr">&quot;password&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>
+}
+</code></pre>
+                  <!-- </div> -->
+                </section>
+              </div>
+            </div>
+            <div class="doc-row">
+              <div class="doc-copy">
+                <section class="swagger-responses">
+                  <div class="prop-row prop-group">
+                    <div class="prop-name">
+                      <div class="prop-title">200 OK</div>
+                      <div class="prop-ref"></div>
+                      <!-- <span class="swagger-global"></span> <span class="json-schema-reference"><a href=""></a></span> -->
+                    </div>
+                    <div class="prop-value">
+                      <p>successful operation</p>
+                    </div>
+                  </div>
+                  <div class="prop-row prop-group">
+                    <div class="prop-name">
+                      <div class="prop-title">400 Bad Request</div>
+                    </div>
+                    <div class="prop-value">
+                      <p>BAD_REQUEST</p>
+                    </div>
+                  </div>
+                  <div class="prop-row prop-group">
+                    <div class="prop-name">
+                      <div class="prop-title">401 Unauthorized</div>
+                    </div>
+                    <div class="prop-value">
+                      <p>ACCESS_DENIED</p>
+                    </div>
+                  </div>
+                </section>
+              </div>
+              <div class="doc-examples">
+                <h5>Response Content-Types:
+                  <span>application/json</span>
+                </h5>
+                <section>
+                  <h5>Response Example
+                    <span>(200 OK)</span>
+                  </h5>
+                  <!-- <div class="hljs"> --><pre><code class="hljs lang-json"><span class="hljs-string">&quot;string&quot;</span>
+</code></pre>
+                  <!-- </div> -->
+                </section>
+              </div>
+            </div>
+          </div>
+          <div id="operation--v1-GetUserByEmail-get" class="operation panel" data-traverse-target="operation--v1-GetUserByEmail-get">
+            <!-- <section class="operation-tags row"> -->
+            <!-- <div class="doc-copy"> -->
+            <div class="operation-tags">
+              <a class="label" href="#tag-User">User</a>
+              <!---->
+            </div>
+            <!-- </div> -->
+            <!-- </section> -->
+            <h2 class="operation-title">
+              <span class="operation-summary">Get user by email</span>
+            </h2>
+            <div class="doc-row">
+              <div class="doc-copy">
+                <section class="swagger-operation-path">
+                  <span class="operation-method">GET</span>
+                  <span class="operation-path">/v1/GetUserByEmail</span>
+                </section>
+              </div>
+            </div>
+            <div class="doc-row">
+              <div class="doc-copy">
+                <section class="swagger-operation-description">
+                  <p>This API method can be used to get user info using the email address of the user.</p>
+                </section>
+              </div>
+            </div>
+            <div class="doc-row">
+              <div class="doc-copy">
+                <section class="swagger-request-params">
+                  <div class="prop-row prop-group">
+                    <div class="prop-name">
+                      <div class="prop-title">email</div>
+                      <span class="json-property-required"></span>
+                    </div>
+                    <div class="prop-value">
+                      <p>Email address of the user.</p>
+                    </div>
+                  </div>
+                  <div class="prop-row prop-inner">
+                    <div class="prop-name param-label">type</div>
+                    <div class="prop-value">
+                      <span class="json-property-type">string</span>
+                      <span class="json-property-range" title="Value limits"></span>
+                    </div>
+                  </div>
+                  <div class="prop-row prop-inner">
+                    <div class="prop-name param-label">in</div>
+                    <div class="prop-value">query</div>
+                  </div>
+                </section>
+              </div>
+              <div class="doc-examples"></div>
+            </div>
+            <div class="doc-row">
+              <div class="doc-copy">
+                <section class="swagger-responses">
+                  <div class="prop-row prop-group">
+                    <div class="prop-name">
+                      <div class="prop-title">200 OK</div>
+                      <div class="prop-ref">
+                        <span class="">
+                          <a class="json-schema-ref" href="#/definitions/User">User</a>
+                        </span>
+                      </div>
+                      <!-- <span class="swagger-global"></span> <span class="json-schema-reference"><a href=""></a></span> -->
+                    </div>
+                    <div class="prop-value">
+                      <p>successful operation</p>
+                    </div>
+                  </div>
+                  <div class="prop-row prop-group">
+                    <div class="prop-name">
+                      <div class="prop-title">400 Bad Request</div>
+                    </div>
+                    <div class="prop-value">
+                      <p>BAD_REQUEST</p>
+                    </div>
+                  </div>
+                  <div class="prop-row prop-group">
+                    <div class="prop-name">
+                      <div class="prop-title">403 Forbidden</div>
+                    </div>
+                    <div class="prop-value">
+                      <p>UNAUTHORIZED</p>
+                    </div>
+                  </div>
+                </section>
+              </div>
+              <div class="doc-examples">
+                <h5>Response Content-Types:
+                  <span>application/json</span>
+                </h5>
+                <section>
+                  <h5>Response Example
+                    <span>(200 OK)</span>
+                  </h5>
+                  <!-- <div class="hljs"> --><pre><code class="hljs lang-json">{
+  <span class="hljs-attr">&quot;uid&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+  <span class="hljs-attr">&quot;email&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+  <span class="hljs-attr">&quot;emailVerified&quot;</span>: <span class="hljs-string">&quot;boolean&quot;</span>,
+  <span class="hljs-attr">&quot;displayName&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+  <span class="hljs-attr">&quot;photoURL&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+  <span class="hljs-attr">&quot;disabled&quot;</span>: <span class="hljs-string">&quot;boolean&quot;</span>,
+  <span class="hljs-attr">&quot;metadata&quot;</span>: {
+    <span class="hljs-attr">&quot;lastSignedInAt&quot;</span>: <span class="hljs-string">&quot;string (date-time)&quot;</span>,
+    <span class="hljs-attr">&quot;createdAt&quot;</span>: <span class="hljs-string">&quot;string (date-time)&quot;</span>
+  },
+  <span class="hljs-attr">&quot;providerData&quot;</span>: [
+    {
+      <span class="hljs-attr">&quot;uid&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+      <span class="hljs-attr">&quot;email&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+      <span class="hljs-attr">&quot;displayName&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+      <span class="hljs-attr">&quot;photoURL&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+      <span class="hljs-attr">&quot;providerId&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>
+    }
+  ]
+}
+</code></pre>
+                  <!-- </div> -->
+                </section>
+              </div>
+            </div>
+          </div>
+          <div id="operation--v1-GetUserById-get" class="operation panel" data-traverse-target="operation--v1-GetUserById-get">
+            <!-- <section class="operation-tags row"> -->
+            <!-- <div class="doc-copy"> -->
+            <div class="operation-tags">
+              <a class="label" href="#tag-User">User</a>
+              <!---->
+            </div>
+            <!-- </div> -->
+            <!-- </section> -->
+            <h2 class="operation-title">
+              <span class="operation-summary">Get user by id</span>
+            </h2>
+            <div class="doc-row">
+              <div class="doc-copy">
+                <section class="swagger-operation-path">
+                  <span class="operation-method">GET</span>
+                  <span class="operation-path">/v1/GetUserById</span>
+                </section>
+              </div>
+            </div>
+            <div class="doc-row">
+              <div class="doc-copy">
+                <section class="swagger-operation-description">
+                  <p>This API method can be used to get user info using the uid of the user.</p>
+                </section>
+              </div>
+            </div>
+            <div class="doc-row">
+              <div class="doc-copy">
+                <section class="swagger-request-params">
+                  <div class="prop-row prop-group">
+                    <div class="prop-name">
+                      <div class="prop-title">userId</div>
+                      <span class="json-property-required"></span>
+                    </div>
+                    <div class="prop-value">
+                      <p>uid of the user.</p>
+                    </div>
+                  </div>
+                  <div class="prop-row prop-inner">
+                    <div class="prop-name param-label">type</div>
+                    <div class="prop-value">
+                      <span class="json-property-type">string</span>
+                      <span class="json-property-range" title="Value limits"></span>
+                    </div>
+                  </div>
+                  <div class="prop-row prop-inner">
+                    <div class="prop-name param-label">in</div>
+                    <div class="prop-value">query</div>
+                  </div>
+                </section>
+              </div>
+              <div class="doc-examples"></div>
+            </div>
+            <div class="doc-row">
+              <div class="doc-copy">
+                <section class="swagger-responses">
+                  <div class="prop-row prop-group">
+                    <div class="prop-name">
+                      <div class="prop-title">200 OK</div>
+                      <div class="prop-ref">
+                        <span class="">
+                          <a class="json-schema-ref" href="#/definitions/User">User</a>
+                        </span>
+                      </div>
+                      <!-- <span class="swagger-global"></span> <span class="json-schema-reference"><a href=""></a></span> -->
+                    </div>
+                    <div class="prop-value">
+                      <p>successful operation</p>
+                    </div>
+                  </div>
+                  <div class="prop-row prop-group">
+                    <div class="prop-name">
+                      <div class="prop-title">403 Forbidden</div>
+                    </div>
+                    <div class="prop-value">
+                      <p>UNAUTHORIZED</p>
+                    </div>
+                  </div>
+                </section>
+              </div>
+              <div class="doc-examples">
+                <h5>Response Content-Types:
+                  <span>application/json</span>
+                </h5>
+                <section>
+                  <h5>Response Example
+                    <span>(200 OK)</span>
+                  </h5>
+                  <!-- <div class="hljs"> --><pre><code class="hljs lang-json">{
+  <span class="hljs-attr">&quot;uid&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+  <span class="hljs-attr">&quot;email&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+  <span class="hljs-attr">&quot;emailVerified&quot;</span>: <span class="hljs-string">&quot;boolean&quot;</span>,
+  <span class="hljs-attr">&quot;displayName&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+  <span class="hljs-attr">&quot;photoURL&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+  <span class="hljs-attr">&quot;disabled&quot;</span>: <span class="hljs-string">&quot;boolean&quot;</span>,
+  <span class="hljs-attr">&quot;metadata&quot;</span>: {
+    <span class="hljs-attr">&quot;lastSignedInAt&quot;</span>: <span class="hljs-string">&quot;string (date-time)&quot;</span>,
+    <span class="hljs-attr">&quot;createdAt&quot;</span>: <span class="hljs-string">&quot;string (date-time)&quot;</span>
+  },
+  <span class="hljs-attr">&quot;providerData&quot;</span>: [
+    {
+      <span class="hljs-attr">&quot;uid&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+      <span class="hljs-attr">&quot;email&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+      <span class="hljs-attr">&quot;displayName&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+      <span class="hljs-attr">&quot;photoURL&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+      <span class="hljs-attr">&quot;providerId&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>
+    }
+  ]
+}
+</code></pre>
+                  <!-- </div> -->
+                </section>
+              </div>
+            </div>
+          </div>
+          <div id="operation--v1-GetAllUserData-get" class="operation panel" data-traverse-target="operation--v1-GetAllUserData-get">
+            <!-- <section class="operation-tags row"> -->
+            <!-- <div class="doc-copy"> -->
+            <div class="operation-tags">
+              <a class="label" href="#tag-User">User</a>
+              <!---->
+            </div>
+            <!-- </div> -->
+            <!-- </section> -->
+            <h2 class="operation-title">
+              <span class="operation-summary">Get all user data</span>
+            </h2>
+            <div class="doc-row">
+              <div class="doc-copy">
+                <section class="swagger-operation-path">
+                  <span class="operation-method">GET</span>
+                  <span class="operation-path">/v1/GetAllUserData</span>
+                </section>
+              </div>
+            </div>
+            <div class="doc-row">
+              <div class="doc-copy">
+                <section class="swagger-operation-description">
+                  <p>This API method can be used to get all user data. Currently it is being used for User Projects Library.</p>
+                </section>
+              </div>
+            </div>
+            <div class="doc-row">
+              <div class="doc-copy"> </div>
+              <div class="doc-examples"></div>
+            </div>
+            <div class="doc-row">
+              <div class="doc-copy">
+                <section class="swagger-responses">
+                  <div class="prop-row prop-group">
+                    <div class="prop-name">
+                      <div class="prop-title">200 OK</div>
+                      <div class="prop-ref">
+                        <span class="">
+                          <a class="json-schema-ref" href="#/definitions/UserWithProfile">UserWithProfile</a>
+                        </span>
+                      </div>
+                      <!-- <span class="swagger-global"></span> <span class="json-schema-reference"><a href=""></a></span> -->
+                    </div>
+                    <div class="prop-value">
+                      <p>successful operation</p>
+                    </div>
+                  </div>
+                  <div class="prop-row prop-group">
+                    <div class="prop-name">
+                      <div class="prop-title">403 Forbidden</div>
+                    </div>
+                    <div class="prop-value">
+                      <p>UNAUTHORIZED</p>
+                    </div>
+                  </div>
+                </section>
+              </div>
+              <div class="doc-examples">
+                <h5>Response Content-Types:
+                  <span>application/json</span>
+                </h5>
+                <section>
+                  <h5>Response Example
+                    <span>(200 OK)</span>
+                  </h5>
+                  <!-- <div class="hljs"> --><pre><code class="hljs lang-json">{
+  <span class="hljs-attr">&quot;uid-1&quot;</span>: {
+    <span class="hljs-attr">&quot;uid&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+    <span class="hljs-attr">&quot;email&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+    <span class="hljs-attr">&quot;emailVerified&quot;</span>: <span class="hljs-string">&quot;boolean&quot;</span>,
+    <span class="hljs-attr">&quot;displayName&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+    <span class="hljs-attr">&quot;photoURL&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+    <span class="hljs-attr">&quot;disabled&quot;</span>: <span class="hljs-string">&quot;boolean&quot;</span>,
+    <span class="hljs-attr">&quot;metadata&quot;</span>: {
+      <span class="hljs-attr">&quot;lastSignedInAt&quot;</span>: <span class="hljs-string">&quot;string (date-time)&quot;</span>,
+      <span class="hljs-attr">&quot;createdAt&quot;</span>: <span class="hljs-string">&quot;string (date-time)&quot;</span>
+    },
+    <span class="hljs-attr">&quot;providerData&quot;</span>: [
+      {
+        <span class="hljs-attr">&quot;uid&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+        <span class="hljs-attr">&quot;email&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+        <span class="hljs-attr">&quot;displayName&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+        <span class="hljs-attr">&quot;photoURL&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+        <span class="hljs-attr">&quot;providerId&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>
+      }
+    ],
+    <span class="hljs-attr">&quot;Profile&quot;</span>: {
+      <span class="hljs-attr">&quot;Bio&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+      <span class="hljs-attr">&quot;Birthdate&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+      <span class="hljs-attr">&quot;Country&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+      <span class="hljs-attr">&quot;Profession&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>
+    }
+  }
+}
+</code></pre>
+                  <!-- </div> -->
+                </section>
+              </div>
+            </div>
+          </div>
+          <h1 id="tag-Assets" class="swagger-summary-tag" data-traverse-target="tag-Assets">Assets</h1>
+          <div class="tag-description doc-row">
+            <div class="doc-copy">
+              <p>Operations about assets</p>
+            </div>
+          </div>
+          <div id="operation--v1-GetAssetsData-get" class="operation panel" data-traverse-target="operation--v1-GetAssetsData-get">
+            <!-- <section class="operation-tags row"> -->
+            <!-- <div class="doc-copy"> -->
+            <div class="operation-tags">
+              <a class="label" href="#tag-Assets">Assets</a>
+              <!---->
+            </div>
+            <!-- </div> -->
+            <!-- </section> -->
+            <h2 class="operation-title">
+              <span class="operation-summary">Get assets data</span>
+            </h2>
+            <div class="doc-row">
+              <div class="doc-copy">
+                <section class="swagger-operation-path">
+                  <span class="operation-method">GET</span>
+                  <span class="operation-path">/v1/GetAssetsData</span>
+                </section>
+              </div>
+            </div>
+            <div class="doc-row">
+              <div class="doc-copy">
+                <section class="swagger-operation-description">
+                  <p>Get data of all LibraryObjects and Materials in one API call.</p>
+                </section>
+              </div>
+            </div>
+            <div class="doc-row">
+              <div class="doc-copy"> </div>
+              <div class="doc-examples"></div>
+            </div>
+            <div class="doc-row">
+              <div class="doc-copy">
+                <section class="swagger-responses">
+                  <div class="prop-row prop-group">
+                    <div class="prop-name">
+                      <div class="prop-title">200 OK</div>
+                      <div class="prop-ref">
+                        <span class="">
+                          <a class="json-schema-ref" href="#/definitions/Asset">Asset</a>
+                        </span>
+                      </div>
+                      <!-- <span class="swagger-global"></span> <span class="json-schema-reference"><a href=""></a></span> -->
+                    </div>
+                    <div class="prop-value">
+                      <p>successful operation</p>
+                    </div>
+                  </div>
+                  <div class="prop-row prop-group">
+                    <div class="prop-name">
+                      <div class="prop-title">403 Forbidden</div>
+                    </div>
+                    <div class="prop-value">
+                      <p>UNAUTHORIZED</p>
+                    </div>
+                  </div>
+                </section>
+              </div>
+              <div class="doc-examples">
+                <h5>Response Content-Types:
+                  <span>application/json</span>
+                </h5>
+                <section>
+                  <h5>Response Example
+                    <span>(200 OK)</span>
+                  </h5>
+                  <!-- <div class="hljs"> --><pre><code class="hljs lang-json">{
+  <span class="hljs-attr">&quot;AssetId-1&quot;</span>: {
+    <span class="hljs-attr">&quot;CategoryId&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+    <span class="hljs-attr">&quot;Description&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+    <span class="hljs-attr">&quot;IsVisibleInLibrary&quot;</span>: <span class="hljs-string">&quot;bool&quot;</span>,
+    <span class="hljs-attr">&quot;Name&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+    <span class="hljs-attr">&quot;PrimaryScreenshotId&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+    <span class="hljs-attr">&quot;Properties&quot;</span>: {
+      <span class="hljs-attr">&quot;Height&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+      <span class="hljs-attr">&quot;Width&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+      <span class="hljs-attr">&quot;Length&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+      <span class="hljs-attr">&quot;Z Height&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>
+    },
+    <span class="hljs-attr">&quot;UnrealEngineGuid&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+    <span class="hljs-attr">&quot;PakFiles&quot;</span>: {
+      <span class="hljs-attr">&quot;WindowsNoEditor&quot;</span>: {
+        <span class="hljs-attr">&quot;Url&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+        <span class="hljs-attr">&quot;MD5Checksum&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>
+      },
+      <span class="hljs-attr">&quot;Editor&quot;</span>: {
+        <span class="hljs-attr">&quot;Url&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+        <span class="hljs-attr">&quot;MD5Checksum&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>
+      },
+      <span class="hljs-attr">&quot;IOS&quot;</span>: {
+        <span class="hljs-attr">&quot;Url&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+        <span class="hljs-attr">&quot;MD5Checksum&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>
+      },
+      <span class="hljs-attr">&quot;Android&quot;</span>: {
+        <span class="hljs-attr">&quot;Url&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+        <span class="hljs-attr">&quot;MD5Checksum&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>
+      }
+    },
+    <span class="hljs-attr">&quot;RequiredAssets&quot;</span>: {
+      <span class="hljs-attr">&quot;RequiredAssetId-1&quot;</span>: {
+        <span class="hljs-attr">&quot;UnrealEngineGuid&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>
+      }
+    }
+  }
+}
+</code></pre>
+                  <!-- </div> -->
+                </section>
+              </div>
+            </div>
+          </div>
+          <h1>Schema Definitions</h1>
+          <div id="definition-AccessTokenRequest" class="definition panel" data-traverse-target="definition-AccessTokenRequest">
+            <h2 class="panel-title">
+              <a name="/definitions/AccessTokenRequest"></a>AccessTokenRequest: object
+              <!-- <span class="json-property-type"><span class="json-property-type">object</span>
+              <span class="json-property-range" title="Value limits"></span>
+              
+              
+              </span> -->
+            </h2>
+            <div class="doc-row">
+              <div class="doc-copy">
+                <section class="json-schema-properties">
+                  <dl>
+                    <dt data-property-name="email">
+                      <span class="json-property-name">email:</span>
+                      <span class="json-property-type">string</span>
+                      <span class="json-property-range" title="Value limits"></span>
+                    </dt>
+                    <dt data-property-name="password">
+                      <span class="json-property-name">password:</span>
+                      <span class="json-property-type">string</span>
+                      <span class="json-property-range" title="Value limits"></span>
+                    </dt>
+                  </dl>
+                </section>
+              </div>
+              <div class="doc-examples">
+                <section>
+                  <h5>Example</h5>
+                  <!-- <div class="hljs"> --><pre><code class="hljs lang-json">{
+  <span class="hljs-attr">&quot;email&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+  <span class="hljs-attr">&quot;password&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>
+}
+</code></pre>
+                  <!-- </div> -->
+                </section>
+              </div>
+            </div>
+          </div>
+          <div id="definition-User" class="definition panel" data-traverse-target="definition-User">
+            <h2 class="panel-title">
+              <a name="/definitions/User"></a>User: object
+              <!-- <span class="json-property-type"><span class="json-property-type">object</span>
+              <span class="json-property-range" title="Value limits"></span>
+              
+              
+              </span> -->
+            </h2>
+            <div class="doc-row">
+              <div class="doc-copy">
+                <section class="json-schema-properties">
+                  <dl>
+                    <dt data-property-name="uid" class="has-description">
+                      <span class="json-property-name">uid:</span>
+                      <span class="json-property-type">string</span>
+                      <span class="json-property-range" title="Value limits"></span>
+                    </dt>
+                    <dd>
+                      <p>Id of the user.</p>
+                    </dd>
+                    <dt data-property-name="email">
+                      <span class="json-property-name">email:</span>
+                      <span class="json-property-type">string</span>
+                      <span class="json-property-range" title="Value limits"></span>
+                    </dt>
+                    <dt data-property-name="emailVerified">
+                      <span class="json-property-name">emailVerified:</span>
+                      <span class="json-property-type">boolean</span>
+                      <span class="json-property-range" title="Value limits"></span>
+                    </dt>
+                    <dt data-property-name="displayName">
+                      <span class="json-property-name">displayName:</span>
+                      <span class="json-property-type">string</span>
+                      <span class="json-property-range" title="Value limits"></span>
+                    </dt>
+                    <dt data-property-name="photoURL">
+                      <span class="json-property-name">photoURL:</span>
+                      <span class="json-property-type">string</span>
+                      <span class="json-property-range" title="Value limits"></span>
+                    </dt>
+                    <dt data-property-name="disabled">
+                      <span class="json-property-name">disabled:</span>
+                      <span class="json-property-type">boolean</span>
+                      <span class="json-property-range" title="Value limits"></span>
+                    </dt>
+                    <dt data-property-name="metadata">
+                      <span class="json-property-name">metadata:</span>
+                      <span class="json-property-type">object</span>
+                      <span class="json-property-range" title="Value limits"></span>
+                    </dt>
+                    <dt data-property-name="providerData">
+                      <span class="json-property-name">providerData:</span>
+                      <span class="json-property-type">object[]</span>
+                      <span class="json-property-range" title="Value limits"></span>
+                    </dt>
+                  </dl>
+                </section>
+              </div>
+              <div class="doc-examples">
+                <section>
+                  <h5>Example</h5>
+                  <!-- <div class="hljs"> --><pre><code class="hljs lang-json">{
+  <span class="hljs-attr">&quot;uid&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+  <span class="hljs-attr">&quot;email&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+  <span class="hljs-attr">&quot;emailVerified&quot;</span>: <span class="hljs-string">&quot;boolean&quot;</span>,
+  <span class="hljs-attr">&quot;displayName&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+  <span class="hljs-attr">&quot;photoURL&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+  <span class="hljs-attr">&quot;disabled&quot;</span>: <span class="hljs-string">&quot;boolean&quot;</span>,
+  <span class="hljs-attr">&quot;metadata&quot;</span>: {
+    <span class="hljs-attr">&quot;lastSignedInAt&quot;</span>: <span class="hljs-string">&quot;string (date-time)&quot;</span>,
+    <span class="hljs-attr">&quot;createdAt&quot;</span>: <span class="hljs-string">&quot;string (date-time)&quot;</span>
+  },
+  <span class="hljs-attr">&quot;providerData&quot;</span>: [
+    {
+      <span class="hljs-attr">&quot;uid&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+      <span class="hljs-attr">&quot;email&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+      <span class="hljs-attr">&quot;displayName&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+      <span class="hljs-attr">&quot;photoURL&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+      <span class="hljs-attr">&quot;providerId&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>
+    }
+  ]
+}
+</code></pre>
+                  <!-- </div> -->
+                </section>
+              </div>
+            </div>
+          </div>
+          <div id="definition-UserWithProfile" class="definition panel" data-traverse-target="definition-UserWithProfile">
+            <h2 class="panel-title">
+              <a name="/definitions/UserWithProfile"></a>UserWithProfile: object
+              <!-- <span class="json-property-type"><span class="json-property-type">object</span>
+              <span class="json-property-range" title="Value limits"></span>
+              
+              
+              </span> -->
+            </h2>
+            <div class="doc-row">
+              <div class="doc-copy">
+                <section class="json-schema-properties">
+                  <dl>
+                    <dt data-property-name="uid-1">
+                      <span class="json-property-name">uid-1:</span>
+                      <span class="json-property-type">object</span>
+                      <span class="json-property-range" title="Value limits"></span>
+                    </dt>
+                  </dl>
+                </section>
+              </div>
+              <div class="doc-examples">
+                <section>
+                  <h5>Example</h5>
+                  <!-- <div class="hljs"> --><pre><code class="hljs lang-json">{
+  <span class="hljs-attr">&quot;uid-1&quot;</span>: {
+    <span class="hljs-attr">&quot;uid&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+    <span class="hljs-attr">&quot;email&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+    <span class="hljs-attr">&quot;emailVerified&quot;</span>: <span class="hljs-string">&quot;boolean&quot;</span>,
+    <span class="hljs-attr">&quot;displayName&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+    <span class="hljs-attr">&quot;photoURL&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+    <span class="hljs-attr">&quot;disabled&quot;</span>: <span class="hljs-string">&quot;boolean&quot;</span>,
+    <span class="hljs-attr">&quot;metadata&quot;</span>: {
+      <span class="hljs-attr">&quot;lastSignedInAt&quot;</span>: <span class="hljs-string">&quot;string (date-time)&quot;</span>,
+      <span class="hljs-attr">&quot;createdAt&quot;</span>: <span class="hljs-string">&quot;string (date-time)&quot;</span>
+    },
+    <span class="hljs-attr">&quot;providerData&quot;</span>: [
+      {
+        <span class="hljs-attr">&quot;uid&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+        <span class="hljs-attr">&quot;email&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+        <span class="hljs-attr">&quot;displayName&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+        <span class="hljs-attr">&quot;photoURL&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+        <span class="hljs-attr">&quot;providerId&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>
+      }
+    ],
+    <span class="hljs-attr">&quot;Profile&quot;</span>: {
+      <span class="hljs-attr">&quot;Bio&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+      <span class="hljs-attr">&quot;Birthdate&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+      <span class="hljs-attr">&quot;Country&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+      <span class="hljs-attr">&quot;Profession&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>
+    }
+  }
+}
+</code></pre>
+                  <!-- </div> -->
+                </section>
+              </div>
+            </div>
+          </div>
+          <div id="definition-Asset" class="definition panel" data-traverse-target="definition-Asset">
+            <h2 class="panel-title">
+              <a name="/definitions/Asset"></a>Asset: object
+              <!-- <span class="json-property-type"><span class="json-property-type">object</span>
+              <span class="json-property-range" title="Value limits"></span>
+              
+              
+              </span> -->
+            </h2>
+            <div class="doc-row">
+              <div class="doc-copy">
+                <section class="json-schema-properties">
+                  <dl>
+                    <dt data-property-name="AssetId-1">
+                      <span class="json-property-name">AssetId-1:</span>
+                      <span class="json-property-type">object</span>
+                      <span class="json-property-range" title="Value limits"></span>
+                    </dt>
+                  </dl>
+                </section>
+              </div>
+              <div class="doc-examples">
+                <section>
+                  <h5>Example</h5>
+                  <!-- <div class="hljs"> --><pre><code class="hljs lang-json">{
+  <span class="hljs-attr">&quot;AssetId-1&quot;</span>: {
+    <span class="hljs-attr">&quot;CategoryId&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+    <span class="hljs-attr">&quot;Description&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+    <span class="hljs-attr">&quot;IsVisibleInLibrary&quot;</span>: <span class="hljs-string">&quot;bool&quot;</span>,
+    <span class="hljs-attr">&quot;Name&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+    <span class="hljs-attr">&quot;PrimaryScreenshotId&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+    <span class="hljs-attr">&quot;Properties&quot;</span>: {
+      <span class="hljs-attr">&quot;Height&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+      <span class="hljs-attr">&quot;Width&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+      <span class="hljs-attr">&quot;Length&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+      <span class="hljs-attr">&quot;Z Height&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>
+    },
+    <span class="hljs-attr">&quot;UnrealEngineGuid&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+    <span class="hljs-attr">&quot;PakFiles&quot;</span>: {
+      <span class="hljs-attr">&quot;WindowsNoEditor&quot;</span>: {
+        <span class="hljs-attr">&quot;Url&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+        <span class="hljs-attr">&quot;MD5Checksum&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>
+      },
+      <span class="hljs-attr">&quot;Editor&quot;</span>: {
+        <span class="hljs-attr">&quot;Url&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+        <span class="hljs-attr">&quot;MD5Checksum&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>
+      },
+      <span class="hljs-attr">&quot;IOS&quot;</span>: {
+        <span class="hljs-attr">&quot;Url&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+        <span class="hljs-attr">&quot;MD5Checksum&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>
+      },
+      <span class="hljs-attr">&quot;Android&quot;</span>: {
+        <span class="hljs-attr">&quot;Url&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+        <span class="hljs-attr">&quot;MD5Checksum&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>
+      }
+    },
+    <span class="hljs-attr">&quot;RequiredAssets&quot;</span>: {
+      <span class="hljs-attr">&quot;RequiredAssetId-1&quot;</span>: {
+        <span class="hljs-attr">&quot;UnrealEngineGuid&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>
+      }
+    }
+  }
+}
+</code></pre>
+                  <!-- </div> -->
+                </section>
+              </div>
+            </div>
+          </div>
+          <div id="definition-AllowedIps" class="definition panel" data-traverse-target="definition-AllowedIps">
+            <h2 class="panel-title">
+              <a name="/definitions/AllowedIps"></a>AllowedIps: object
+              <!-- <span class="json-property-type"><span class="json-property-type">object</span>
+              <span class="json-property-range" title="Value limits"></span>
+              
+              
+              </span> -->
+            </h2>
+            <div class="doc-row">
+              <div class="doc-copy">
+                <section class="json-schema-properties">
+                  <dl>
+                    <dt data-property-name="IPAddress">
+                      <span class="json-property-name">IPAddress:</span>
+                      <span class="json-property-type">string</span>
+                      <span class="json-property-range" title="Value limits"></span>
+                    </dt>
+                  </dl>
+                </section>
+              </div>
+              <div class="doc-examples">
+                <section>
+                  <h5>Example</h5>
+                  <!-- <div class="hljs"> --><pre><code class="hljs lang-json">{
+  <span class="hljs-attr">&quot;IPAddress&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>
+}
+</code></pre>
+                  <!-- </div> -->
+                </section>
+              </div>
+            </div>
+          </div>
+          <div id="definition-LibraryObjects" class="definition panel" data-traverse-target="definition-LibraryObjects">
+            <h2 class="panel-title">
+              <a name="/definitions/LibraryObjects"></a>LibraryObjects: object
+              <!-- <span class="json-property-type"><span class="json-property-type">object</span>
+              <span class="json-property-range" title="Value limits"></span>
+              
+              
+              </span> -->
+            </h2>
+            <div class="doc-row">
+              <div class="doc-copy">
+                <section class="json-schema-properties">
+                  <dl>
+                    <dt data-property-name="BasicData">
+                      <span class="json-property-name">BasicData:</span>
+                      <span class="json-property-type">object</span>
+                      <span class="json-property-range" title="Value limits"></span>
+                    </dt>
+                    <dt data-property-name="Categories_Objects">
+                      <span class="json-property-name">Categories_Objects:</span>
+                      <span class="json-property-type">object</span>
+                      <span class="json-property-range" title="Value limits"></span>
+                    </dt>
+                    <dt data-property-name="DependentMaterials">
+                      <span class="json-property-name">DependentMaterials:</span>
+                      <span class="json-property-type">object</span>
+                      <span class="json-property-range" title="Value limits"></span>
+                    </dt>
+                    <dt data-property-name="DependentObjects">
+                      <span class="json-property-name">DependentObjects:</span>
+                      <span class="json-property-type">object</span>
+                      <span class="json-property-range" title="Value limits"></span>
+                    </dt>
+                    <dt data-property-name="FavoringUsers">
+                      <span class="json-property-name">FavoringUsers:</span>
+                      <span class="json-property-type">object</span>
+                      <span class="json-property-range" title="Value limits"></span>
+                    </dt>
+                    <dt data-property-name="PakFiles">
+                      <span class="json-property-name">PakFiles:</span>
+                      <span class="json-property-type">object</span>
+                      <span class="json-property-range" title="Value limits"></span>
+                    </dt>
+                    <dt data-property-name="RequiredMaterials">
+                      <span class="json-property-name">RequiredMaterials:</span>
+                      <span class="json-property-type">object</span>
+                      <span class="json-property-range" title="Value limits"></span>
+                    </dt>
+                    <dt data-property-name="RequiredObjects">
+                      <span class="json-property-name">RequiredObjects:</span>
+                      <span class="json-property-type">object</span>
+                      <span class="json-property-range" title="Value limits"></span>
+                    </dt>
+                    <dt data-property-name="Screenshots">
+                      <span class="json-property-name">Screenshots:</span>
+                      <span class="json-property-type">object</span>
+                      <span class="json-property-range" title="Value limits"></span>
+                    </dt>
+                    <dt data-property-name="UnrealEngineGuid_LibraryObjectId">
+                      <span class="json-property-name">UnrealEngineGuid_LibraryObjectId:</span>
+                      <span class="json-property-type">object</span>
+                      <span class="json-property-range" title="Value limits"></span>
+                    </dt>
+                    <dt data-property-name="Tags">
+                      <span class="json-property-name">Tags:</span>
+                      <span class="json-property-type">object</span>
+                      <span class="json-property-range" title="Value limits"></span>
+                    </dt>
+                  </dl>
+                </section>
+              </div>
+              <div class="doc-examples">
+                <section>
+                  <h5>Example</h5>
+                  <!-- <div class="hljs"> --><pre><code class="hljs lang-json">{
+  <span class="hljs-attr">&quot;BasicData&quot;</span>: {
+    <span class="hljs-attr">&quot;LibraryObjectId-1&quot;</span>: {
+      <span class="hljs-attr">&quot;CategoryId&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+      <span class="hljs-attr">&quot;Description&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+      <span class="hljs-attr">&quot;IsVisibleInLibrary&quot;</span>: <span class="hljs-string">&quot;bool&quot;</span>,
+      <span class="hljs-attr">&quot;Name&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+      <span class="hljs-attr">&quot;PrimaryScreenshotId&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+      <span class="hljs-attr">&quot;Properties&quot;</span>: {
+        <span class="hljs-attr">&quot;Height&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+        <span class="hljs-attr">&quot;Width&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+        <span class="hljs-attr">&quot;Length&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+        <span class="hljs-attr">&quot;Z Height&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>
+      },
+      <span class="hljs-attr">&quot;UnrealEngineGuid&quot;</span>: <span class="hljs-string">&quot;String&quot;</span>
+    }
+  },
+  <span class="hljs-attr">&quot;Categories_Objects&quot;</span>: {
+    <span class="hljs-attr">&quot;Categories&quot;</span>: {
+      <span class="hljs-attr">&quot;CategoryId-1&quot;</span>: {
+        <span class="hljs-attr">&quot;Objects&quot;</span>: {
+          <span class="hljs-attr">&quot;LibraryObjectId-1&quot;</span>: <span class="hljs-string">&quot;boolean&quot;</span>
+        }
+      }
+    }
+  },
+  <span class="hljs-attr">&quot;DependentMaterials&quot;</span>: {
+    <span class="hljs-attr">&quot;LibraryObjectId-5&quot;</span>: {
+      <span class="hljs-attr">&quot;DependentMaterialId-1&quot;</span>: <span class="hljs-string">&quot;boolean&quot;</span>
+    }
+  },
+  <span class="hljs-attr">&quot;DependentObjects&quot;</span>: {
+    <span class="hljs-attr">&quot;LibraryObjectId-1&quot;</span>: {
+      <span class="hljs-attr">&quot;DependentLibraryObjectId-5&quot;</span>: <span class="hljs-string">&quot;boolean&quot;</span>,
+      <span class="hljs-attr">&quot;DependentLibraryObjectId-4&quot;</span>: <span class="hljs-string">&quot;boolean&quot;</span>
+    }
+  },
+  <span class="hljs-attr">&quot;FavoringUsers&quot;</span>: {
+    <span class="hljs-attr">&quot;Objects&quot;</span>: {
+      <span class="hljs-attr">&quot;LibraryObjectId-1&quot;</span>: {
+        <span class="hljs-attr">&quot;Users&quot;</span>: {
+          <span class="hljs-attr">&quot;UserId-1&quot;</span>: <span class="hljs-string">&quot;boolean&quot;</span>,
+          <span class="hljs-attr">&quot;UserId-2&quot;</span>: <span class="hljs-string">&quot;boolean&quot;</span>
+        }
+      }
+    }
+  },
+  <span class="hljs-attr">&quot;PakFiles&quot;</span>: {
+    <span class="hljs-attr">&quot;LibraryObjectId-1&quot;</span>: {
+      <span class="hljs-attr">&quot;WindowsNoEditor&quot;</span>: {
+        <span class="hljs-attr">&quot;Url&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+        <span class="hljs-attr">&quot;MD5Checksum&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>
+      },
+      <span class="hljs-attr">&quot;Editor&quot;</span>: {
+        <span class="hljs-attr">&quot;Url&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+        <span class="hljs-attr">&quot;MD5Checksum&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>
+      },
+      <span class="hljs-attr">&quot;IOS&quot;</span>: {
+        <span class="hljs-attr">&quot;Url&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+        <span class="hljs-attr">&quot;MD5Checksum&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>
+      },
+      <span class="hljs-attr">&quot;Android&quot;</span>: {
+        <span class="hljs-attr">&quot;Url&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+        <span class="hljs-attr">&quot;MD5Checksum&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>
+      }
+    }
+  },
+  <span class="hljs-attr">&quot;RequiredMaterials&quot;</span>: {
+    <span class="hljs-attr">&quot;LibraryObjectId-5&quot;</span>: {
+      <span class="hljs-attr">&quot;RequiredMaterialId-1&quot;</span>: <span class="hljs-string">&quot;boolean&quot;</span>
+    }
+  },
+  <span class="hljs-attr">&quot;RequiredObjects&quot;</span>: {
+    <span class="hljs-attr">&quot;LibraryObjectId-5&quot;</span>: {
+      <span class="hljs-attr">&quot;RequiredLibraryObjectId-1&quot;</span>: <span class="hljs-string">&quot;boolean&quot;</span>
+    }
+  },
+  <span class="hljs-attr">&quot;Screenshots&quot;</span>: {
+    <span class="hljs-attr">&quot;LibraryObjectId-1&quot;</span>: {
+      <span class="hljs-attr">&quot;ScreenshotId&quot;</span>: {
+        <span class="hljs-attr">&quot;HighResolution&quot;</span>: {
+          <span class="hljs-attr">&quot;FileName&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+          <span class="hljs-attr">&quot;Url&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>
+        },
+        <span class="hljs-attr">&quot;LowResolution&quot;</span>: {
+          <span class="hljs-attr">&quot;FileName&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+          <span class="hljs-attr">&quot;Url&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>
+        }
+      }
+    }
+  },
+  <span class="hljs-attr">&quot;UnrealEngineGuid_LibraryObjectId&quot;</span>: {
+    <span class="hljs-attr">&quot;UnrealEngineGuid-1&quot;</span>: {
+      <span class="hljs-attr">&quot;LibraryObjectId-1&quot;</span>: <span class="hljs-string">&quot;boolean&quot;</span>
+    }
+  },
+  <span class="hljs-attr">&quot;Tags&quot;</span>: {
+    <span class="hljs-attr">&quot;LibraryObjectId-1&quot;</span>: {
+      <span class="hljs-attr">&quot;TagId-1&quot;</span>: <span class="hljs-string">&quot;boolean&quot;</span>
+    }
+  }
+}
+</code></pre>
+                  <!-- </div> -->
+                </section>
+              </div>
+            </div>
+          </div>
+          <div id="definition-Materials" class="definition panel" data-traverse-target="definition-Materials">
+            <h2 class="panel-title">
+              <a name="/definitions/Materials"></a>Materials: object
+              <!-- <span class="json-property-type"><span class="json-property-type">object</span>
+              <span class="json-property-range" title="Value limits"></span>
+              
+              
+              </span> -->
+            </h2>
+            <div class="doc-row">
+              <div class="doc-copy">
+                <section class="json-schema-properties">
+                  <dl>
+                    <dt data-property-name="BasicData">
+                      <span class="json-property-name">BasicData:</span>
+                      <span class="json-property-type">object</span>
+                      <span class="json-property-range" title="Value limits"></span>
+                    </dt>
+                    <dt data-property-name="Categories_Materials">
+                      <span class="json-property-name">Categories_Materials:</span>
+                      <span class="json-property-type">object</span>
+                      <span class="json-property-range" title="Value limits"></span>
+                    </dt>
+                    <dt data-property-name="DependentMaterials">
+                      <span class="json-property-name">DependentMaterials:</span>
+                      <span class="json-property-type">object</span>
+                      <span class="json-property-range" title="Value limits"></span>
+                    </dt>
+                    <dt data-property-name="DependentObjects">
+                      <span class="json-property-name">DependentObjects:</span>
+                      <span class="json-property-type">object</span>
+                      <span class="json-property-range" title="Value limits"></span>
+                    </dt>
+                    <dt data-property-name="FavoringUsers">
+                      <span class="json-property-name">FavoringUsers:</span>
+                      <span class="json-property-type">object</span>
+                      <span class="json-property-range" title="Value limits"></span>
+                    </dt>
+                    <dt data-property-name="PakFiles">
+                      <span class="json-property-name">PakFiles:</span>
+                      <span class="json-property-type">object</span>
+                      <span class="json-property-range" title="Value limits"></span>
+                    </dt>
+                    <dt data-property-name="RequiredMaterials">
+                      <span class="json-property-name">RequiredMaterials:</span>
+                      <span class="json-property-type">object</span>
+                      <span class="json-property-range" title="Value limits"></span>
+                    </dt>
+                    <dt data-property-name="RequiredObjects">
+                      <span class="json-property-name">RequiredObjects:</span>
+                      <span class="json-property-type">object</span>
+                      <span class="json-property-range" title="Value limits"></span>
+                    </dt>
+                    <dt data-property-name="Screenshots">
+                      <span class="json-property-name">Screenshots:</span>
+                      <span class="json-property-type">object</span>
+                      <span class="json-property-range" title="Value limits"></span>
+                    </dt>
+                    <dt data-property-name="UnrealEngineGuid_LibraryObjectId">
+                      <span class="json-property-name">UnrealEngineGuid_LibraryObjectId:</span>
+                      <span class="json-property-type">object</span>
+                      <span class="json-property-range" title="Value limits"></span>
+                    </dt>
+                    <dt data-property-name="Tags">
+                      <span class="json-property-name">Tags:</span>
+                      <span class="json-property-type">object</span>
+                      <span class="json-property-range" title="Value limits"></span>
+                    </dt>
+                  </dl>
+                </section>
+              </div>
+              <div class="doc-examples">
+                <section>
+                  <h5>Example</h5>
+                  <!-- <div class="hljs"> --><pre><code class="hljs lang-json">{
+  <span class="hljs-attr">&quot;BasicData&quot;</span>: {
+    <span class="hljs-attr">&quot;MaterialId&quot;</span>: {
+      <span class="hljs-attr">&quot;CategoryId&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+      <span class="hljs-attr">&quot;Description&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+      <span class="hljs-attr">&quot;IsVisibleInLibrary&quot;</span>: <span class="hljs-string">&quot;bool&quot;</span>,
+      <span class="hljs-attr">&quot;Name&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+      <span class="hljs-attr">&quot;PrimaryScreenshotId&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+      <span class="hljs-attr">&quot;Properties&quot;</span>: {
+        <span class="hljs-attr">&quot;Height&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+        <span class="hljs-attr">&quot;Width&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+        <span class="hljs-attr">&quot;Length&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+        <span class="hljs-attr">&quot;Z Height&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>
+      },
+      <span class="hljs-attr">&quot;UnrealEngineGuid&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>
+    }
+  },
+  <span class="hljs-attr">&quot;Categories_Materials&quot;</span>: {
+    <span class="hljs-attr">&quot;Categories&quot;</span>: {
+      <span class="hljs-attr">&quot;CategoryId-1&quot;</span>: {
+        <span class="hljs-attr">&quot;Materials&quot;</span>: {
+          <span class="hljs-attr">&quot;MaterialId-1&quot;</span>: <span class="hljs-string">&quot;boolean&quot;</span>
+        }
+      }
+    }
+  },
+  <span class="hljs-attr">&quot;DependentMaterials&quot;</span>: {
+    <span class="hljs-attr">&quot;MaterialId-1&quot;</span>: {
+      <span class="hljs-attr">&quot;DependentMaterialId-5&quot;</span>: <span class="hljs-string">&quot;boolean&quot;</span>
+    }
+  },
+  <span class="hljs-attr">&quot;DependentObjects&quot;</span>: {
+    <span class="hljs-attr">&quot;MaterialId-1&quot;</span>: {
+      <span class="hljs-attr">&quot;DependentLibraryObjectId-5&quot;</span>: <span class="hljs-string">&quot;boolean&quot;</span>,
+      <span class="hljs-attr">&quot;DependentLibraryObjectId-6&quot;</span>: <span class="hljs-string">&quot;boolean&quot;</span>
+    }
+  },
+  <span class="hljs-attr">&quot;FavoringUsers&quot;</span>: {
+    <span class="hljs-attr">&quot;Materials&quot;</span>: {
+      <span class="hljs-attr">&quot;MaterialId-1&quot;</span>: {
+        <span class="hljs-attr">&quot;Users&quot;</span>: {
+          <span class="hljs-attr">&quot;UserId-1&quot;</span>: <span class="hljs-string">&quot;boolean&quot;</span>,
+          <span class="hljs-attr">&quot;UserId-2&quot;</span>: <span class="hljs-string">&quot;boolean&quot;</span>
+        }
+      }
+    }
+  },
+  <span class="hljs-attr">&quot;PakFiles&quot;</span>: {
+    <span class="hljs-attr">&quot;MaterialId-1&quot;</span>: {
+      <span class="hljs-attr">&quot;WindowsNoEditor&quot;</span>: {
+        <span class="hljs-attr">&quot;Url&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+        <span class="hljs-attr">&quot;MD5Checksum&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>
+      },
+      <span class="hljs-attr">&quot;Editor&quot;</span>: {
+        <span class="hljs-attr">&quot;Url&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+        <span class="hljs-attr">&quot;MD5Checksum&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>
+      },
+      <span class="hljs-attr">&quot;IOS&quot;</span>: {
+        <span class="hljs-attr">&quot;Url&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+        <span class="hljs-attr">&quot;MD5Checksum&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>
+      },
+      <span class="hljs-attr">&quot;Android&quot;</span>: {
+        <span class="hljs-attr">&quot;Url&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+        <span class="hljs-attr">&quot;MD5Checksum&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>
+      }
+    }
+  },
+  <span class="hljs-attr">&quot;RequiredMaterials&quot;</span>: {
+    <span class="hljs-attr">&quot;MaterialId-5&quot;</span>: {
+      <span class="hljs-attr">&quot;RequiredMaterialId-1&quot;</span>: <span class="hljs-string">&quot;boolean&quot;</span>
+    }
+  },
+  <span class="hljs-attr">&quot;RequiredObjects&quot;</span>: {
+    <span class="hljs-attr">&quot;MaterialId-5&quot;</span>: {
+      <span class="hljs-attr">&quot;RequiredLibraryObjectId-1&quot;</span>: <span class="hljs-string">&quot;boolean&quot;</span>
+    }
+  },
+  <span class="hljs-attr">&quot;Screenshots&quot;</span>: {
+    <span class="hljs-attr">&quot;MaterialId-1&quot;</span>: {
+      <span class="hljs-attr">&quot;ScreenshotId&quot;</span>: {
+        <span class="hljs-attr">&quot;HighResolution&quot;</span>: {
+          <span class="hljs-attr">&quot;FileName&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+          <span class="hljs-attr">&quot;Url&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>
+        },
+        <span class="hljs-attr">&quot;LowResolution&quot;</span>: {
+          <span class="hljs-attr">&quot;FileName&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+          <span class="hljs-attr">&quot;Url&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>
+        }
+      }
+    }
+  },
+  <span class="hljs-attr">&quot;UnrealEngineGuid_LibraryObjectId&quot;</span>: {
+    <span class="hljs-attr">&quot;UnrealEngineGuid-1&quot;</span>: {
+      <span class="hljs-attr">&quot;MaterialId-1&quot;</span>: <span class="hljs-string">&quot;boolean&quot;</span>
+    }
+  },
+  <span class="hljs-attr">&quot;Tags&quot;</span>: {
+    <span class="hljs-attr">&quot;MaterialId-1&quot;</span>: {
+      <span class="hljs-attr">&quot;TagId-1&quot;</span>: <span class="hljs-string">&quot;boolean&quot;</span>
+    }
+  }
+}
+</code></pre>
+                  <!-- </div> -->
+                </section>
+              </div>
+            </div>
+          </div>
+          <div id="definition-MaterialCategories" class="definition panel" data-traverse-target="definition-MaterialCategories">
+            <h2 class="panel-title">
+              <a name="/definitions/MaterialCategories"></a>MaterialCategories: object
+              <!-- <span class="json-property-type"><span class="json-property-type">object</span>
+              <span class="json-property-range" title="Value limits"></span>
+              
+              
+              </span> -->
+            </h2>
+            <div class="doc-row">
+              <div class="doc-copy">
+                <section class="json-schema-properties">
+                  <dl>
+                    <dt data-property-name="MaterialCatId-1">
+                      <span class="json-property-name">MaterialCatId-1:</span>
+                      <span class="json-property-type">object</span>
+                      <span class="json-property-range" title="Value limits"></span>
+                    </dt>
+                  </dl>
+                </section>
+              </div>
+              <div class="doc-examples">
+                <section>
+                  <h5>Example</h5>
+                  <!-- <div class="hljs"> --><pre><code class="hljs lang-json">{
+  <span class="hljs-attr">&quot;MaterialCatId-1&quot;</span>: {
+    <span class="hljs-attr">&quot;Name&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>
+  }
+}
+</code></pre>
+                  <!-- </div> -->
+                </section>
+              </div>
+            </div>
+          </div>
+          <div id="definition-MaterialTags" class="definition panel" data-traverse-target="definition-MaterialTags">
+            <h2 class="panel-title">
+              <a name="/definitions/MaterialTags"></a>MaterialTags: object
+              <!-- <span class="json-property-type"><span class="json-property-type">object</span>
+              <span class="json-property-range" title="Value limits"></span>
+              
+              
+              </span> -->
+            </h2>
+            <div class="doc-row">
+              <div class="doc-copy">
+                <section class="json-schema-properties">
+                  <dl>
+                    <dt data-property-name="MaterialTagId-1">
+                      <span class="json-property-name">MaterialTagId-1:</span>
+                      <span class="json-property-type">object</span>
+                      <span class="json-property-range" title="Value limits"></span>
+                    </dt>
+                  </dl>
+                </section>
+              </div>
+              <div class="doc-examples">
+                <section>
+                  <h5>Example</h5>
+                  <!-- <div class="hljs"> --><pre><code class="hljs lang-json">{
+  <span class="hljs-attr">&quot;MaterialTagId-1&quot;</span>: {
+    <span class="hljs-attr">&quot;Name&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>
+  }
+}
+</code></pre>
+                  <!-- </div> -->
+                </section>
+              </div>
+            </div>
+          </div>
+          <div id="definition-ObjectCategories" class="definition panel" data-traverse-target="definition-ObjectCategories">
+            <h2 class="panel-title">
+              <a name="/definitions/ObjectCategories"></a>ObjectCategories: object
+              <!-- <span class="json-property-type"><span class="json-property-type">object</span>
+              <span class="json-property-range" title="Value limits"></span>
+              
+              
+              </span> -->
+            </h2>
+            <div class="doc-row">
+              <div class="doc-copy">
+                <section class="json-schema-properties">
+                  <dl>
+                    <dt data-property-name="ObjectCatId-1">
+                      <span class="json-property-name">ObjectCatId-1:</span>
+                      <span class="json-property-type">object</span>
+                      <span class="json-property-range" title="Value limits"></span>
+                    </dt>
+                  </dl>
+                </section>
+              </div>
+              <div class="doc-examples">
+                <section>
+                  <h5>Example</h5>
+                  <!-- <div class="hljs"> --><pre><code class="hljs lang-json">{
+  <span class="hljs-attr">&quot;ObjectCatId-1&quot;</span>: {
+    <span class="hljs-attr">&quot;Name&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>
+  }
+}
+</code></pre>
+                  <!-- </div> -->
+                </section>
+              </div>
+            </div>
+          </div>
+          <div id="definition-ObjectTags" class="definition panel" data-traverse-target="definition-ObjectTags">
+            <h2 class="panel-title">
+              <a name="/definitions/ObjectTags"></a>ObjectTags: object
+              <!-- <span class="json-property-type"><span class="json-property-type">object</span>
+              <span class="json-property-range" title="Value limits"></span>
+              
+              
+              </span> -->
+            </h2>
+            <div class="doc-row">
+              <div class="doc-copy">
+                <section class="json-schema-properties">
+                  <dl>
+                    <dt data-property-name="ObjectTagId-1">
+                      <span class="json-property-name">ObjectTagId-1:</span>
+                      <span class="json-property-type">object</span>
+                      <span class="json-property-range" title="Value limits"></span>
+                    </dt>
+                  </dl>
+                </section>
+              </div>
+              <div class="doc-examples">
+                <section>
+                  <h5>Example</h5>
+                  <!-- <div class="hljs"> --><pre><code class="hljs lang-json">{
+  <span class="hljs-attr">&quot;ObjectTagId-1&quot;</span>: {
+    <span class="hljs-attr">&quot;Name&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>
+  }
+}
+</code></pre>
+                  <!-- </div> -->
+                </section>
+              </div>
+            </div>
+          </div>
+          <div id="definition-ProjectCategories" class="definition panel" data-traverse-target="definition-ProjectCategories">
+            <h2 class="panel-title">
+              <a name="/definitions/ProjectCategories"></a>ProjectCategories: object
+              <!-- <span class="json-property-type"><span class="json-property-type">object</span>
+              <span class="json-property-range" title="Value limits"></span>
+              
+              
+              </span> -->
+            </h2>
+            <div class="doc-row">
+              <div class="doc-copy">
+                <section class="json-schema-properties">
+                  <dl>
+                    <dt data-property-name="ProjectCatId-1">
+                      <span class="json-property-name">ProjectCatId-1:</span>
+                      <span class="json-property-type">object</span>
+                      <span class="json-property-range" title="Value limits"></span>
+                    </dt>
+                  </dl>
+                </section>
+              </div>
+              <div class="doc-examples">
+                <section>
+                  <h5>Example</h5>
+                  <!-- <div class="hljs"> --><pre><code class="hljs lang-json">{
+  <span class="hljs-attr">&quot;ProjectCatId-1&quot;</span>: {
+    <span class="hljs-attr">&quot;Name&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>
+  }
+}
+</code></pre>
+                  <!-- </div> -->
+                </section>
+              </div>
+            </div>
+          </div>
+          <div id="definition-UserProjects" class="definition panel" data-traverse-target="definition-UserProjects">
+            <h2 class="panel-title">
+              <a name="/definitions/UserProjects"></a>UserProjects: object
+              <!-- <span class="json-property-type"><span class="json-property-type">object</span>
+              <span class="json-property-range" title="Value limits"></span>
+              
+              
+              </span> -->
+            </h2>
+            <div class="doc-row">
+              <div class="doc-copy">
+                <section class="json-schema-properties">
+                  <dl>
+                    <dt data-property-name="BasicData">
+                      <span class="json-property-name">BasicData:</span>
+                      <span class="json-property-type">object</span>
+                      <span class="json-property-range" title="Value limits"></span>
+                    </dt>
+                    <dt data-property-name="PublicProjects">
+                      <span class="json-property-name">PublicProjects:</span>
+                      <span class="json-property-type">object</span>
+                      <span class="json-property-range" title="Value limits"></span>
+                    </dt>
+                    <dt data-property-name="Screenshots">
+                      <span class="json-property-name">Screenshots:</span>
+                      <span class="json-property-type">object</span>
+                      <span class="json-property-range" title="Value limits"></span>
+                    </dt>
+                    <dt data-property-name="UserProjectComments">
+                      <span class="json-property-name">UserProjectComments:</span>
+                      <span class="json-property-type">object</span>
+                      <span class="json-property-range" title="Value limits"></span>
+                    </dt>
+                  </dl>
+                </section>
+              </div>
+              <div class="doc-examples">
+                <section>
+                  <h5>Example</h5>
+                  <!-- <div class="hljs"> --><pre><code class="hljs lang-json">{
+  <span class="hljs-attr">&quot;BasicData&quot;</span>: {
+    <span class="hljs-attr">&quot;ProjectId&quot;</span>: {
+      <span class="hljs-attr">&quot;UserId&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+      <span class="hljs-attr">&quot;Name&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+      <span class="hljs-attr">&quot;Description&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+      <span class="hljs-attr">&quot;CreatedDatetime&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+      <span class="hljs-attr">&quot;UpdatedDatetime&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+      <span class="hljs-attr">&quot;IsPublic&quot;</span>: <span class="hljs-string">&quot;boolean&quot;</span>,
+      <span class="hljs-attr">&quot;Url&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+      <span class="hljs-attr">&quot;MD5Checksum&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>
+    }
+  },
+  <span class="hljs-attr">&quot;PublicProjects&quot;</span>: {
+    <span class="hljs-attr">&quot;PublishedAtTimestampReciprocal&quot;</span>: <span class="hljs-string">&quot;string (ProjectId-1)&quot;</span>
+  },
+  <span class="hljs-attr">&quot;Screenshots&quot;</span>: {
+    <span class="hljs-attr">&quot;ProjectId-1&quot;</span>: {
+      <span class="hljs-attr">&quot;ScreenshotId&quot;</span>: {
+        <span class="hljs-attr">&quot;HighResolution&quot;</span>: {
+          <span class="hljs-attr">&quot;FileName&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+          <span class="hljs-attr">&quot;Url&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>
+        },
+        <span class="hljs-attr">&quot;LowResolution&quot;</span>: {
+          <span class="hljs-attr">&quot;FileName&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+          <span class="hljs-attr">&quot;Url&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>
+        }
+      }
+    }
+  },
+  <span class="hljs-attr">&quot;UserProjectComments&quot;</span>: {
+    <span class="hljs-attr">&quot;Projects&quot;</span>: {
+      <span class="hljs-attr">&quot;ProjectId-1&quot;</span>: {
+        <span class="hljs-attr">&quot;Comments&quot;</span>: {
+          <span class="hljs-attr">&quot;CommentId&quot;</span>: {
+            <span class="hljs-attr">&quot;Message&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+            <span class="hljs-attr">&quot;UserId-1&quot;</span>: <span class="hljs-string">&quot;boolean&quot;</span>
+          }
+        }
+      }
+    }
+  }
+}
+</code></pre>
+                  <!-- </div> -->
+                </section>
+              </div>
+            </div>
+          </div>
+          <div id="definition-Users" class="definition panel" data-traverse-target="definition-Users">
+            <h2 class="panel-title">
+              <a name="/definitions/Users"></a>Users: object
+              <!-- <span class="json-property-type"><span class="json-property-type">object</span>
+              <span class="json-property-range" title="Value limits"></span>
+              
+              
+              </span> -->
+            </h2>
+            <div class="doc-row">
+              <div class="doc-copy">
+                <section class="json-schema-properties">
+                  <dl>
+                    <dt data-property-name="FavoriteMaterials">
+                      <span class="json-property-name">FavoriteMaterials:</span>
+                      <span class="json-property-type">object</span>
+                      <span class="json-property-range" title="Value limits"></span>
+                    </dt>
+                    <dt data-property-name="FavoriteObjects">
+                      <span class="json-property-name">FavoriteObjects:</span>
+                      <span class="json-property-type">object</span>
+                      <span class="json-property-range" title="Value limits"></span>
+                    </dt>
+                    <dt data-property-name="Preferences">
+                      <span class="json-property-name">Preferences:</span>
+                      <span class="json-property-type">object</span>
+                      <span class="json-property-range" title="Value limits"></span>
+                    </dt>
+                    <dt data-property-name="Projects">
+                      <span class="json-property-name">Projects:</span>
+                      <span class="json-property-type">object</span>
+                      <span class="json-property-range" title="Value limits"></span>
+                    </dt>
+                  </dl>
+                </section>
+              </div>
+              <div class="doc-examples">
+                <section>
+                  <h5>Example</h5>
+                  <!-- <div class="hljs"> --><pre><code class="hljs lang-json">{
+  <span class="hljs-attr">&quot;FavoriteMaterials&quot;</span>: {
+    <span class="hljs-attr">&quot;UserId-1&quot;</span>: {
+      <span class="hljs-attr">&quot;AllCategories&quot;</span>: {
+        <span class="hljs-attr">&quot;Materials&quot;</span>: {
+          <span class="hljs-attr">&quot;MaterialId-1&quot;</span>: <span class="hljs-string">&quot;boolean&quot;</span>
+        }
+      }
+    }
+  },
+  <span class="hljs-attr">&quot;FavoriteObjects&quot;</span>: {
+    <span class="hljs-attr">&quot;UserId-1&quot;</span>: {
+      <span class="hljs-attr">&quot;AllCategories&quot;</span>: {
+        <span class="hljs-attr">&quot;Objects&quot;</span>: {
+          <span class="hljs-attr">&quot;LibraryObjectId-1&quot;</span>: <span class="hljs-string">&quot;boolean&quot;</span>
+        }
+      }
+    }
+  },
+  <span class="hljs-attr">&quot;Preferences&quot;</span>: {
+    <span class="hljs-attr">&quot;UserId&quot;</span>: {
+      <span class="hljs-attr">&quot;MaterialLibrary&quot;</span>: {
+        <span class="hljs-attr">&quot;OpenTabs&quot;</span>: {
+          <span class="hljs-attr">&quot;0&quot;</span>: <span class="hljs-string">&quot;string (MaterialCatId-1)&quot;</span>,
+          <span class="hljs-attr">&quot;1&quot;</span>: <span class="hljs-string">&quot;string (NEW_RECORDS_TAB)&quot;</span>
+        }
+      },
+      <span class="hljs-attr">&quot;ObjectLibrary&quot;</span>: {
+        <span class="hljs-attr">&quot;OpenTabs&quot;</span>: {
+          <span class="hljs-attr">&quot;0&quot;</span>: <span class="hljs-string">&quot;string (LibraryCatId-1)&quot;</span>,
+          <span class="hljs-attr">&quot;1&quot;</span>: <span class="hljs-string">&quot;string (LibraryCatId-5)&quot;</span>
+        }
+      }
+    }
+  },
+  <span class="hljs-attr">&quot;Projects&quot;</span>: {
+    <span class="hljs-attr">&quot;UserId-1&quot;</span>: {
+      <span class="hljs-attr">&quot;ProjectId-1&quot;</span>: <span class="hljs-string">&quot;boolean&quot;</span>
+    }
+  }
+}
+</code></pre>
+                  <!-- </div> -->
+                </section>
+              </div>
+            </div>
+          </div>
+          <div id="definition-UsersProfile" class="definition panel" data-traverse-target="definition-UsersProfile">
+            <h2 class="panel-title">
+              <a name="/definitions/UsersProfile"></a>UsersProfile: object
+              <!-- <span class="json-property-type"><span class="json-property-type">object</span>
+              <span class="json-property-range" title="Value limits"></span>
+              
+              
+              </span> -->
+            </h2>
+            <div class="doc-row">
+              <div class="doc-copy">
+                <section class="json-schema-properties">
+                  <dl>
+                    <dt data-property-name="Users">
+                      <span class="json-property-name">Users:</span>
+                      <span class="json-property-type">object</span>
+                      <span class="json-property-range" title="Value limits"></span>
+                    </dt>
+                  </dl>
+                </section>
+              </div>
+              <div class="doc-examples">
+                <section>
+                  <h5>Example</h5>
+                  <!-- <div class="hljs"> --><pre><code class="hljs lang-json">{
+  <span class="hljs-attr">&quot;Users&quot;</span>: {
+    <span class="hljs-attr">&quot;Profile&quot;</span>: {
+      <span class="hljs-attr">&quot;UserId-1&quot;</span>: {
+        <span class="hljs-attr">&quot;Bio&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+        <span class="hljs-attr">&quot;Birthdate&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+        <span class="hljs-attr">&quot;Country&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+        <span class="hljs-attr">&quot;Profession&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>
+      }
+    }
+  }
+}
+</code></pre>
+                  <!-- </div> -->
+                </section>
+              </div>
+            </div>
+          </div>
+          <div class="doc-row no-margin">
+            <div class="doc-copy doc-separator">
+              <a class="powered-by" href="https://sourcey.com/spectacle">Documentation by
+                <span>Spectacle</span>
+              </a>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </body>
+</html>
